@@ -13,8 +13,10 @@ use Illuminate\Database\Eloquent\Model;
  * Class User
  * 
  * @property int $id
- * @property string $name
+ * @property string $username
  * @property string $password
+ * @property int $level
+ * @property int $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
@@ -24,12 +26,19 @@ class User extends Model
 {
 	protected $table = 'users';
 
+	protected $casts = [
+		'level' => 'int',
+		'status' => 'int'
+	];
+
 	protected $hidden = [
 		'password'
 	];
 
 	protected $fillable = [
-		'name',
-		'password'
+		'username',
+		'password',
+		'level',
+		'status'
 	];
 }
