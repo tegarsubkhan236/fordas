@@ -33,7 +33,7 @@
                                 <tr>
                                     <td>{{($key+1)}}</td>
                                     <td>{{$row->username}}</td>
-                                    <td>{{$row->wilayah_da}}</td>
+                                    <td>{{$row->das_id ? $row->wilayah_da->nama : ""}}</td>
                                     <td>{{$row->level}}</td>
                                 </tr>
                             @endforeach
