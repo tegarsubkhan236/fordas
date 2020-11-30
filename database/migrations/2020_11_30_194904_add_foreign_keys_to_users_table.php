@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWilayahDasTable extends Migration
+class AddForeignKeysToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateWilayahDasTable extends Migration
      */
     public function up()
     {
-        Schema::create('wilayah_das', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->integer('wilayah_id')->index('wilayah_id');
-            $table->string('nama', 100);
-            $table->string('password', 100);
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('das_id', 'users_ibfk_1')->references('id')->on('wilayah_das')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateWilayahDasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wilayah_das');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_ibfk_1');
+        });
     }
 }

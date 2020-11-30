@@ -9,16 +9,16 @@
             id="aspect_viewArtifacts_Navigation_list_browse"
             class="list-group">
             <a href="/test" class="list-group-item active"><span
-                    class="h5 list-group-item-heading  h5">All of IPB Repository</span></a><a
-                href="/community-list"
+                    class="h5 list-group-item-heading  h5">All of FORDAS</span></a><a
+                href="#"
                 class="list-group-item ds-option">Collections</a><a
-                href="/browse?type=dateissued"
+                href="#"
                 class="list-group-item ds-option">By Issue Date</a><a
-                href="/browse?type=author"
+                href="#"
                 class="list-group-item ds-option">Authors</a><a
-                href="/browse?type=title"
+                href="#"
                 class="list-group-item ds-option">Titles</a><a
-                href="/browse?type=subject"
+                href="#"
                 class="list-group-item ds-option">Subjects</a>
         </div>
         <h2 class="ds-option-set-head  h6">My Account</h2>
@@ -27,13 +27,9 @@
             class="list-group">
             <a href="/login" class="list-group-item ds-option">Login</a>
         </div>
-        <div
-            id="aspect_viewArtifacts_Navigation_list_context"
-            class="list-group" />
-        <div
-            id="aspect_viewArtifacts_Navigation_list_administrative"
-            class="list-group" />
-        <h2 class="ds-option-set-head  h6">Discover</h2>
+        <div id="aspect_viewArtifacts_Navigation_list_context" class="list-group">
+        <div id="aspect_viewArtifacts_Navigation_list_administrative" class="list-group">
+        {{-- <h2 class="ds-option-set-head  h6">Discover</h2>
         <div id="aspect_discovery_Navigation_list_discovery" class="list-group">
             <a href="/test" class="list-group-item active"><span
                     class="h5 list-group-item-heading  h5">Author</span></a><a
@@ -85,6 +81,6 @@
                 class="list-group-item ds-option">Bogor-JABAR (1405)</a><a
                 href="/search-filter?field=subject&amp;order=COUNT"
                 class="list-group-item ds-option">... View More</a>
-        </div>
+        </div> --}}
     </div>
 </div>

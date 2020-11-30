@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('username');
             $table->string('password');
+            $table->integer('das_id')->nullable()->index('das_id');
             $table->integer('level');
             $table->integer('status');
             $table->timestamps();

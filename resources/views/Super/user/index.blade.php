@@ -16,9 +16,6 @@
                             <h3>{{$title}}</h3>
                         </div>
                         <div class="col-md-9">
-                            <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#create">
-                                Tambah
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -27,29 +24,17 @@
                         <table class="table-bordered table-hover table" id="dtable">
                             <thead class="thead-dark">
                             <th>No</th>
-                            <th>Wilayah</th>
-                            <th style="text-align:center;">Aksi</th>
+                            <th>Username</th>
+                            <th>DAS</th>
+                            <th>Jabatan</th>
                             </thead>
                             <tbody>
                             @foreach($data as $key => $row)
                                 <tr>
                                     <td>{{($key+1)}}</td>
-                                    <td>{{$row->nama}}</td>
-                                    <td style="text-align:center;">
-                                        <a href="{{url("super/wilayah/detail/".$row->id."/".$row->nama)}}" class="btn btn-sm btn-info">
-                                            <li class="fa fa-eye"></li>
-                                        </a> ||
-                                        <button type="button" data-id="{{$row->id}}" data-nama="{{$row->nama}}" class="btn btn-sm btn-warning edit">
-                                            <li class="fa fa-edit"></li>
-                                        </button>
-                                        {{-- <form action="{{ route('wilayah.delete', [$row->id]) }}" method="post" class="d-inline">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn btn-danger btn-sm delete-confirm" data-name="{{ $row->title }}" type="submit">
-                                                <li class="fa fa-trash"></li>
-                                            </button>
-                                        </form> --}}
-                                    </td>
+                                    <td>{{$row->username}}</td>
+                                    <td>{{$row->wilayah_da}}</td>
+                                    <td>{{$row->level}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -61,7 +46,7 @@
     </div>
 
     <!-- Create Data Modal -->
-    <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    {{-- <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -78,10 +63,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Update Data Modal -->
-    <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    {{-- <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -98,7 +83,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @stop
 
 @section('footer')
@@ -115,15 +100,15 @@
         $("#dtable").DataTable({
         });
 
-        $("#dtable .edit").on("click",function(){
-            let params = $(this)
-            let id = params.data("id")
-            let nama = params.data("nama")
-            $("#update").modal();
+        // $("#dtable .edit").on("click",function(){
+        //     let params = $(this)
+        //     let id = params.data("id")
+        //     let nama = params.data("nama")
+        //     $("#update").modal();
 
-            $("#update").find(".modal-body input[name=nama]").val(nama)
-            $("#update").find(".modal-body form").attr("action","{{route("wilayah.update")}}/"+id)
-            $("#update").find(".modal-title").text("Edit Data")
-        })
+        //     $("#update").find(".modal-body input[name=nama]").val(nama)
+        //     $("#update").find(".modal-body form").attr("action","{{route("wilayah.update")}}/"+id)
+        //     $("#update").find(".modal-title").text("Edit Data")
+        // })
     </script>
 @stop

@@ -2,33 +2,14 @@
     <div class="row">
         <hr />
         <div class="col-xs-7 col-sm-8">
-            <div>
-                Copyright&nbsp;©&nbsp;2020&nbsp;<a
+             <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copyright&nbsp;©&nbsp;2020&nbsp;<a
                     target="_blank"
-                    href="http://perpustakaan.ipb.ac.id">Library</a>
+                    href="#">FORDAS</a>
                 of
-                <a target="_blank" href="https://ipb.ac.id">IPB University</a>
-                <br />All rights reserved
-            </div>
-            <div class="hidden-print">
-                <a href="/contact">Contact Us</a>
-                |
-                <a href="/feedback">Send Feedback</a>
-            </div>
-        </div>
-        <div class="col-xs-5 col-sm-4 hidden-print">
-            <div class="pull-right">
-                <span class="theme-by">Indonesia DSpace Group&nbsp;</span>
+                <a target="_blank" href="#">Dinas Kehutanan</a>
                 <br />
-                <a href="http://repository.ipb.ac.id/">IPB University Scientific
-                    Repository</a>
-                <br />
-                <a href="http://repository.uinjkt.ac.id/">UIN Syarif
-                    Hidayatullah Institutional Repository</a>
-                <br />
-                <a href="http://repository.unej.ac.id/">Universitas Jember
-                    Digital Repository</a>
-                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved
             </div>
         </div>
     </div>

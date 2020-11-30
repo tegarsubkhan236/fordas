@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('test');
+    return view('Landing/pages/landing');
 });
 
 Route::get('login', 'AuthController@login_page');
@@ -24,19 +24,22 @@ Route::get("/logout", "AuthController@logout")->name('logout');
 Route::prefix("/super")->namespace("SuperAdmin")->middleware('gateway:1')->group(function () {
     Route::get("/", "HomeController@index")->name("super.home");
 
-    Route::get("/wilayah", "WilayahController@index")->name("wilayah");
-    Route::get("/wilayah/create", "WilayahController@create")->name("wilayah.create");
-    Route::get("/wilayah/edit/{id}", "WilayahController@edit")->name("wilayah.edit");
+    Route::get("/user", "UserController@index")->name("user");
+    Route::get("/user/detail/{id}/{nama}", "UserController@detail")->name("user.detail");
+    Route::post("/user/store", "UserController@store")->name("user.store");
+    Route::post("/user/update/{id?}", "UserController@update")->name("user.update");
+    // Route::delete("/user/delete/{id}", "UserController@delete")->name("user.delete");
 
+    Route::get("/wilayah", "WilayahController@index")->name("wilayah");
+    Route::get("/wilayah/detail/{id}/{nama}", "WilayahController@detail")->name("wilayah.detail");
     Route::post("/wilayah/store", "WilayahController@store")->name("wilayah.store");
-    Route::post("/wilayah/update/{id}", "WilayahController@update")->name("wilayah.update");
-    Route::delete("/wilayah/delete/{id}", "WilayahController@delete")->name("wilayah.delete");
+    Route::post("/wilayah/update/{id?}", "WilayahController@update")->name("wilayah.update");
+    // Route::delete("/wilayah/delete/{id}", "WilayahController@delete")->name("wilayah.delete");
 
     Route::get("/das", "WilayahDASController@index")->name("das");
-    Route::get("/das/create", "WilayahDASController@create")->name("das.create");
-    Route::get("/das/edit/{id}", "WilayahDASController@edit")->name("das.edit");
-
-    Route::post("/das/store", "WilayahDASController@store")->name("das.store");
+    Route::get("/das/create/{id}", "WilayahDASController@create")->name("das.create");
+    // Route::get("/das/edit/{id}", "WilayahDASController@edit")->name("das.edit");
+    Route::post("/das/store/{id}", "WilayahDASController@store")->name("das.store");
     Route::post("/das/update/{id}", "WilayahDASController@update")->name("das.update");
     Route::delete("/das/delete/{id}", "WilayahDASController@delete")->name("das.delete");
 });

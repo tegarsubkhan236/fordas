@@ -13,7 +13,8 @@
                         <span class="icon-bar"> </span>
                     </button>
                     <a class="" href="/">
-                        <img alt="BANNER" class="img-responsive" src="{{ asset('asset/Repository_logo.png') }}" />
+                        {{-- src="{{ asset('asset/Repository_logo.png') }}" --}}
+                        <img alt="BANNER" class="img-responsive" src="https://ipsumimage.appspot.com/1140x100" />
                     </a>
                     <div
                         class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">

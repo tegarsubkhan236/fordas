@@ -38,26 +38,17 @@ class Gateway
                             "url" => "/super",
                             "icon" => "fa fa-home"
                         ]);
-
-                        // $e->menu->add([
-                        //     'text'    => 'Master',
-                        //     'icon'    => 'fas fa-file',
-                        //     'submenu' => [
-                        //         [
-                        //             'text' => 'List DAS',
-                        //             'url'  => '/super/user',
-                        //         ],
-                        //     ],
-                        // ]);
+                        $e->menu->add([
+                            "text" => "User",
+                            "url" => "/super/user",
+                            "icon" => "fa fa-file",
+                            "active" => ["/super/user"]
+                        ]);
                         $e->menu->add([
                             "text" => "Wilayah",
                             "url" => "/super/wilayah",
-                            "icon" => "fa fa-file"
-                        ]);
-                        $e->menu->add([
-                            "text" => "DAS",
-                            "url" => "/super/das",
-                            "icon" => "fa fa-file"
+                            "icon" => "fa fa-file",
+                            "active" => ["/super/wilayah"]
                         ]);
                     });
                     $is_authorize = true;

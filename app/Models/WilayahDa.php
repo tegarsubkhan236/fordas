@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,9 +15,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $wilayah_id
  * @property string $nama
- * @property string $password
  * 
  * @property Wilayah $wilayah
+ * @property Collection|User[] $users
  *
  * @package App\Models
  */
@@ -29,18 +30,18 @@ class WilayahDa extends Model
 		'wilayah_id' => 'int'
 	];
 
-	protected $hidden = [
-		'password'
-	];
-
 	protected $fillable = [
 		'wilayah_id',
-		'nama',
-		'password'
+		'nama'
 	];
 
 	public function wilayah()
 	{
 		return $this->belongsTo(Wilayah::class);
+	}
+
+	public function users()
+	{
+		return $this->hasMany(User::class, 'das_id');
 	}
 }
