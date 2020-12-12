@@ -14,7 +14,7 @@ deploy :
   only:
     - main
   script:
-    - ssh -o StrictHostKeyChecking=no tegar@prod.srv.maugini.in -p 4563 "ls; cd skripsi_pelaporan;git pull origin main;git checkout main ; composer install;composer dump-autoload; php artisan migrate --seed; php artisan config:clear;"
+    - ssh -o StrictHostKeyChecking=no tegar@prod.srv.maugini.in -p 4563 "ls; cd skripsi_pelaporan;git pull origin main;git checkout main ; composer install;composer dump-autoload; php artisan migrate:fresh --seed; php artisan config:clear;"
     - echo "DONE"
 
 
