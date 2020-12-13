@@ -43,3 +43,22 @@ Route::prefix("/super")->namespace("SuperAdmin")->middleware('gateway:1')->group
     Route::post("/das/update/{id}", "WilayahDASController@update")->name("das.update");
     Route::delete("/das/delete/{id}", "WilayahDASController@delete")->name("das.delete");
 });
+
+Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:5')->group(function () {
+    Route::get("/", "HomeController@index")->name("wilayah_sekre.home");
+
+    Route::get("/kategori", "KategoriController@index")->name("kategori");
+    Route::get("/kategori/detail/{id}/{nama}", "KategoriController@detail")->name("kategori.detail");
+    Route::post("/kategori/store", "KategoriController@store")->name("kategori.store");
+    Route::post("/kategori/update/{id?}", "KategoriController@update")->name("kategori.update");
+    // Route::delete("/kategori/delete/{id}", "KategoriController@delete")->name("kategori.delete");
+
+    Route::get("/proposal", "ProposalController@index")->name("proposal");
+    Route::get("/proposal/create", "ProposalController@create")->name("proposal.create");
+    Route::get("/proposal/edit/{id}", "ProposalController@edit")->name("proposal.edit");
+    Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal.detail");
+    //
+    Route::post("/proposal/store", "ProposalController@store")->name("proposal.store");
+    Route::post("/proposal/update/{id?}", "ProposalController@update")->name("proposal.update");
+    // Route::delete("/proposal/delete/{id}", "ProposalController@delete")->name("proposal.delete");
+});

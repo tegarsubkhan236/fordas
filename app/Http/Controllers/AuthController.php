@@ -32,6 +32,7 @@ class AuthController extends Controller
 
         if($find->count() > 0){
             session([
+                "id" => $find->first()->id,
                 "username" => $find->first()->username,
                 "level" => $find->first()->level,
                 "created_at" => $find->first()->created_at,
@@ -39,7 +40,13 @@ class AuthController extends Controller
             if($find->first()->level == 1){
                 $pages = "super";
             } elseif($find->first()->level == 2){
-                $pages = "admin";
+                $pages = "pusat_ketua";
+            } elseif($find->first()->level == 3){
+                $pages = "pusat_sekre";
+            } elseif($find->first()->level == 4){
+                $pages = "wilayah_ketua";
+            } elseif($find->first()->level == 5){
+                $pages = "wilayah_sekre";
             }
 
             return redirect("/" .$pages)->with(["msg" => "Login Successfully !"]);
