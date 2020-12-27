@@ -50,6 +50,12 @@ class Gateway
                             "icon" => "fa fa-file",
                             "active" => ["/super/wilayah"]
                         ]);
+                        $e->menu->add([
+                            "text" => "Profile",
+                            "url" => "/super/profile",
+                            "icon" => "fa fa-file",
+                            "active" => ["/super/profile"]
+                        ]);
                     });
                     $is_authorize = true;
                 } elseif (in_array(2, $split) && $level == 2) {
@@ -92,6 +98,20 @@ class Gateway
                     $is_authorize = true;
                     //Normal
                 } elseif (in_array(4, $split) && $level == 4) {
+                    // Ketua Wilayah
+                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
+                        $e->menu->add([
+                            "text" => "Dashboard",
+                            "url" => "/wilayah_ketua",
+                            "icon" => "fa fa-home"
+                        ]);
+                        $e->menu->add([
+                            "text" => "Proposal",
+                            "url" => "/wilayah_ketua/proposal",
+                            "icon" => "fa fa-file",
+                            "active" => ["/wilayah_ketua/proposal"]
+                        ]);
+                    });
                     $is_authorize = true;
                     //Normal
                 } elseif (in_array(5, $split) && $level == 5) {
@@ -122,18 +142,6 @@ class Gateway
                         ]);
                     });
                     $is_authorize = true;
-                }
-
-
-                //Semua Hak Akses
-                if (in_array(1, $split) || in_array(2, $split)) {
-                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
-                        $e->menu->add([
-                            "text" => "Profile",
-                            "url" => "/profile",
-                            "icon" => "fa fa-users"
-                        ]);
-                    });
                 }
 
                 Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {

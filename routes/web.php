@@ -19,10 +19,14 @@ Route::get('/', function () {
 
 Route::get('login', 'AuthController@login_page');
 Route::post('login', 'AuthController@login_process')->name('login');
+
 Route::get("/logout", "AuthController@logout")->name('logout');
 
 Route::prefix("/super")->namespace("SuperAdmin")->middleware('gateway:1')->group(function () {
     Route::get("/", "HomeController@index")->name("super.home");
+
+    Route::get("/profile", "HomeController@profile")->name("profile");
+    Route::post("/profile/update/{id?}", "HomeController@profile_update")->name("profile.update");
 
     Route::get("/user", "UserController@index")->name("user");
     Route::get("/user/detail/{id}/{nama}", "UserController@detail")->name("user.detail");
@@ -40,7 +44,7 @@ Route::prefix("/super")->namespace("SuperAdmin")->middleware('gateway:1')->group
     Route::get("/das/create/{id}", "WilayahDASController@create")->name("das.create");
     // Route::get("/das/edit/{id}", "WilayahDASController@edit")->name("das.edit");
     Route::post("/das/store/{id}", "WilayahDASController@store")->name("das.store");
-    Route::post("/das/update/{id}", "WilayahDASController@update")->name("das.update");
+    Route::post("/das/update/{id?}", "WilayahDASController@update")->name("das.update");
     Route::delete("/das/delete/{id}", "WilayahDASController@delete")->name("das.delete");
 });
 
@@ -61,4 +65,20 @@ Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:
     Route::post("/proposal/store", "ProposalController@store")->name("proposal.store");
     Route::post("/proposal/update/{id?}", "ProposalController@update")->name("proposal.update");
     // Route::delete("/proposal/delete/{id}", "ProposalController@delete")->name("proposal.delete");
+});
+
+Route::prefix("/wilayah_ketua")->namespace("KetuaWilayah")->middleware('gateway:4')->group(function () {
+    Route::get("/", "HomeController@index")->name("wilayah_ketua.home");
+
+    Route::get("/proposal", "ProposalController@index")->name("proposal");
+    Route::get("/proposal/edit/{id}", "ProposalController@edit")->name("proposal.edit");
+    Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal.detail");
+});
+
+Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:2')->group(function () {
+    Route::get("/", "HomeController@index")->name("pusat_ketua.home");
+});
+
+Route::prefix("/pusat_ketua")->namespace("KetuaPusat")->middleware('gateway:1')->group(function () {
+    Route::get("/", "HomeController@index")->name("pusat_ketua.home");
 });

@@ -41,7 +41,7 @@ class ProposalController extends Controller
         ]);
         $data = $request->except('_token');
         $data['status'] = 0;
-        $data['created_by'] = session()->get('id');
+        $data['created_by'] = session()->get('das_id');
         $data["created_at"] = date("Y-m-d");
         $data["updated_at"] = date("Y-m-d");
         $store = Proposal::insert($data);

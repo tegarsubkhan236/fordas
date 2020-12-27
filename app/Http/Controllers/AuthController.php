@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
     public function login_page()
     {
-        $title = "Login Page";
+        $title = "";
 
         return view('login', [
             $title => "Login Page"
@@ -33,6 +33,7 @@ class AuthController extends Controller
         if($find->count() > 0){
             session([
                 "id" => $find->first()->id,
+                "das_id" => $find->first()->das_id,
                 "username" => $find->first()->username,
                 "level" => $find->first()->level,
                 "created_at" => $find->first()->created_at,

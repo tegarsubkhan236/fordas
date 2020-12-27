@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class User
- * 
+ *
  * @property int $id
  * @property string $username
  * @property string $password
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property WilayahDa|null $wilayah_da
  *
  * @package App\Models
@@ -35,11 +35,12 @@ class User extends Model
 		'status' => 'int'
 	];
 
-	protected $hidden = [
-		'password'
-	];
+	// protected $hidden = [
+	// 	'password'
+	// ];
 
 	protected $fillable = [
+        'password',
 		'username',
 		'password',
 		'das_id',

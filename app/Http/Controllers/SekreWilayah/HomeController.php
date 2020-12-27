@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\SekreWilayah;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\WilayahDa;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $wilayah = session()->get('das_id');
+        $data = WilayahDa::where('id',$wilayah)->first();
+
         return view("SekreWilayah.dashboard", [
             "title" => "Dashboard",
+            "data" => $data,
         ])->with(["msg" => "Login Successfully !"]);
     }
 }

@@ -48,14 +48,23 @@ class WilayahDASController extends Controller
             ]);
             return back()->with(["msg" => "Data has been stored successfully !"]);
         } else {
-            return back()->with(["msg" => "Data failed to store !"]);
+            return back()->withErrors(["msg" => "Data failed to store !"]);
         }
     }
 
-    // public function edit($id)
-    // {
-    //     return view('Super.wilayah_das.index',[
-    //         "title" => "Wilayah DAS Management",
-    //     ]);
-    // }
+    public function update(Request $request,$id)
+    {
+        $request->validate([
+            "nama" => "required",
+        ]);
+        $data = $request->all();
+        unset($data["_token"]);
+        $data["nama"] = strtoupper($data["nama"]);
+        $store = WilayahDa::where(["id" => $id])->update($data);
+        if($store){
+            return back()->with(["msg" => "Data has been updated successfully !"]);
+        } else {
+            return back()->withErrors(["msg" => "Data failed to store !"]);
+        }
+    }
 }

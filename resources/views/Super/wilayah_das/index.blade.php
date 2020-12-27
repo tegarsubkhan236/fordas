@@ -36,16 +36,9 @@
                                     <td>{{($key+1)}}</td>
                                     <td>{{$row->nama}}</td>
                                     <td style="text-align:center;">
-                                        {{-- <a href="{{route("wilayah.edit",[$row->id])}}" class="btn btn-sm btn-warning">
-                                            <li class="fa fa-eye"></li>
-                                        </a> --}}
-                                        {{-- <form action="{{ route('wilayah.delete', [$row->id]) }}" method="post" class="d-inline">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn btn-danger btn-sm delete-confirm" data-name="{{ $row->title }}" type="submit">
-                                                <li class="fa fa-ban"></li>
-                                            </button>
-                                        </form> --}}
+                                        <button type="button" data-id="{{$row->id}}" data-nama="{{$row->nama}}" class="btn btn-sm btn-warning edit">
+                                            <li class="fa fa-edit"></li>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -76,6 +69,33 @@
             </div>
         </div>
     </div>
+
+    <!-- Update Data Modal -->
+    <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{$title}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        @csrf
+                            <div class="form-group">
+                                <label >Name</label>
+                                <input type="text" name="nama" value="{{@$data['nama']}}" class="form-control"  placeholder="Username">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('css')
@@ -87,5 +107,16 @@
     <script>
         $("#dtable").DataTable({
         });
+
+        $("#dtable .edit").on("click",function(){
+            let params = $(this)
+            let id = params.data("id")
+            let nama = params.data("nama")
+            $("#update").modal();
+
+            $("#update").find(".modal-body input[name=nama]").val(nama)
+            $("#update").find(".modal-body form").attr("action","{{route("das.update")}}/"+id)
+            $("#update").find(".modal-title").text("Edit Data")
+        })
     </script>
 @stop
