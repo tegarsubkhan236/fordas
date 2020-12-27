@@ -73,6 +73,7 @@ Route::prefix("/wilayah_ketua")->namespace("KetuaWilayah")->middleware('gateway:
     Route::get("/proposal", "ProposalController@index")->name("proposal");
     Route::get("/proposal/edit/{id}", "ProposalController@edit")->name("proposal.edit");
     Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal.detail");
+    Route::post("/proposal/update/{id?}", "ProposalController@update")->name("proposal.update");
 });
 
 Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:2')->group(function () {
