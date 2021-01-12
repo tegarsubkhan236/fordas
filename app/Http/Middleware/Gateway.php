@@ -67,7 +67,7 @@ class Gateway
                     Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
                         $e->menu->add([
                             "text" => "Dashboard",
-                            "url" => "/author",
+                            "url" => "/pusat_ketua",
                             "icon" => "fa fa-home"
                         ]);
 
@@ -76,25 +76,20 @@ class Gateway
                             'icon'    => 'fas fa-file',
                             'submenu' => [
                                 [
+                                    'text' => 'Kategori Proposal',
+                                    'url'  => '/pusat_ketua/kategori',
+                                ],
+                                [
                                     'text' => 'DAS',
-                                    'url'  => '/author/category',
+                                    'url'  => '/pusat_ketua/das',
                                 ],
                             ],
                         ]);
 
                         $e->menu->add([
-                            'text'    => 'Article',
-                            'icon'    => 'fas fa-file',
-                            'submenu' => [
-                                [
-                                    'text' => 'Article',
-                                    'url'  => '/author/article',
-                                ],
-                                [
-                                    'text' => 'New Article',
-                                    'url'  => '/author/article/create',
-                                ],
-                            ],
+                            "text" => "Proposal",
+                            "url" => "/pusat_ketua/proposal",
+                            "icon" => "fa fa-file"
                         ]);
                     });
                     $is_authorize = true;
@@ -105,14 +100,36 @@ class Gateway
                     Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
                         $e->menu->add([
                             "text" => "Dashboard",
-                            "url" => "/pusat_sekre",
+                            "url" => "/",
                             "icon" => "fa fa-home"
                         ]);
+
                         $e->menu->add([
-                            "text" => "Kategori",
-                            "url" => "/pusat_sekre/kategori",
+                            'text'    => 'Master',
+                            'icon'    => 'fas fa-file',
+                            'submenu' => [
+                                [
+                                    'text' => 'Kategori Proposal',
+                                    'url'  => '/',
+                                ],
+                                [
+                                    'text' => 'DAS',
+                                    'url'  => '/',
+                                ],
+                            ],
+                        ]);
+
+                        $e->menu->add([
+                            "text" => "Proposal",
+                            "url" => "/",
+                            "icon" => "fa fa-file"
+                        ]);
+
+                        $e->menu->add([
+                            "text" => "Add Proposal",
+                            "url" => "/",
                             "icon" => "fa fa-file",
-                            "active" => ["/pusat_sekre/kategori"]
+                            "active" => ["/"]
                         ]);
                     });
                     $is_authorize = true;

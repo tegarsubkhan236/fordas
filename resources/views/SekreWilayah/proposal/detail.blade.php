@@ -84,34 +84,16 @@
                                 <br>
                                 <h5>A. Latar Belakang</h5>
                                 <span style="font-size: x-small;">
-                                    {{$data->latar_belakang}}
+                                    {!! $data->latar_belakang !!}
                                 </span>
                                 <br>
                                 <h5>B. Maksud dan Tujuan</h5>
                                 <span style="font-size: x-small;">
-                                    {{$data->maksud_tujuan}}
+                                    {!! $data->maksud_tujuan !!}
                                 </span>
                                 <br>
                                 <h5>C. Waktu dan Tempat Pelaksanaan</h5>
-                                <span style="font-size: x-small;">
-                                    {{$data->waktu_tempat}}
-                                </span>
-                                <br>
-                                <h5>D. Peserta</h5>
-                                <span style="font-size: x-small;">
-                                    {{$data->peserta}}
-                                </span>
-                                <br>
-                                <h5>E. Narasumber</h5>
-                                <span style="font-size: x-small;">
-                                    {{$data->narasumber}}
-                                </span>
-                                <br>
-                                <h5>F. Bahasan Acara</h5>
-                                <span style="font-size: x-small;">
-                                    {{$data->bahasan}}
-                                </span>
-                            {{-- <table border="0" style="width: 352px;">
+                                <table border="0" style="width: 352px;">
                                 <tbody>
                                     <tr>
                                         <td width="80">
@@ -121,7 +103,7 @@
                                             <span style="font-size: x-small;">:</span>
                                         </td>
                                         <td width="248">
-                                            <span style="font-size: x-small;">Rabu, 11 mei 2011</span>
+                                            <span style="font-size: x-small;">{{$data->tgl}}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -132,7 +114,7 @@
                                             <span style="font-size: x-small;">:</span>
                                         </td>
                                         <td>
-                                            <span style="font-size: x-small;">08.00 - selesai</span>
+                                            <span style="font-size: x-small;">{{$data->waktu}}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -143,12 +125,26 @@
                                             <span style="font-size: x-small;">:</span>
                                         </td>
                                         <td>
-                                            <span style="font-size: x-small;">Aula SMK Informatika Sumedang </span>
+                                            <span style="font-size: x-small;">{{$data->tempat}}</span>
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table> --}}
-
+                            </table>
+                                <br>
+                                <h5>D. Peserta</h5>
+                                <span style="font-size: x-small;">
+                                    {!! $data->peserta !!}
+                                </span>
+                                <br>
+                                <h5>E. Narasumber</h5>
+                                <span style="font-size: x-small;">
+                                    {!! $data->narasumber !!}
+                                </span>
+                                <br>
+                                <h5>F. Bahasan Acara</h5>
+                                <span style="font-size: x-small;">
+                                    {!! $data->bahasan !!}
+                                </span>
                             <div align="justify">
                                 <span style="font-size: x-small;">
                                     Demikian surat ini kami sampaikan, kami harap ibu/bapa dapat menghadiri rapat ini. sekian dan terima kasih.

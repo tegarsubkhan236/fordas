@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view("SekrePusat.dashboard", [
+        return view("KetuaPusat.dashboard", [
             "title" => "Dashboard",
         ])->with(["msg" => "Login Successfully !"]);
     }
