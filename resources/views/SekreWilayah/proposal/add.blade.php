@@ -45,16 +45,24 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label >Tempat Pelaksanaan</label>
+                            <input type="text" name="tempat" class="form-control" value="{{@$data['tempat']}}" placeholder="Tempat Pelaksanaan">
+                        </div>
+                        <div class="form-group">
+                            <label >Tanggal Pelaksanaan</label>
+                            <input type="date" name="tgl" class="form-control" value="{{@$data['tgl']}}" placeholder="Tanggal Pelaksanaan">
+                        </div>
+                        <div class="form-group">
+                            <label >Waktu Pelaksanaan</label>
+                            <input type="time" name="waktu" class="form-control" value="{{@$data['waktu']}}" placeholder="Waktu Pelaksanaan">
+                        </div>
+                        <div class="form-group">
                             <label >Latar Belakang</label>
                             <textarea id="summernote" name="latar_belakang">{{@$data['latar_belakang']}}</textarea>
                         </div>
                         <div class="form-group">
                             <label >Maksud dan Tujuan</label>
                             <textarea id="summernote2" name="maksud_tujuan">{{@$data['maksud_tujuan']}}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label >Waktu dan Tempat Pelaksanaan</label>
-                            <textarea id="summernote3" name="waktu_tempat">{{@$data['waktu_tempat']}}</textarea>
                         </div>
                         <div class="form-group">
                             <label >Pesertan Kegiatan</label>

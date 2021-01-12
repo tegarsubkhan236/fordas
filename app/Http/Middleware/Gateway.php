@@ -81,7 +81,7 @@ class Gateway
                                 ],
                                 [
                                     'text' => 'DAS',
-                                    'url'  => '/pusat_ketua/das',
+                                    'url'  => '/pusat_ketua/wilayah',
                                 ],
                             ],
                         ]);

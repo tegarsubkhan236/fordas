@@ -12,13 +12,15 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Proposal
- * 
+ *
  * @property int $id
  * @property int|null $created_by
  * @property string $judul
+ * @property Carbon|null $tgl
+ * @property Carbon|null $waktu
+ * @property string|null $tempat
  * @property string|null $latar_belakang
  * @property string|null $maksud_tujuan
- * @property string|null $waktu_tempat
  * @property string|null $peserta
  * @property string|null $narasumber
  * @property string|null $bahasan
@@ -30,7 +32,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $files
- * 
+ *
  * @property ProposalKategori $proposal_kategori
  * @property Collection|ProposalDonatur[] $proposal_donaturs
  *
@@ -48,12 +50,19 @@ class Proposal extends Model
 		'donate' => 'bool'
 	];
 
+	protected $dates = [
+		'tgl',
+		'waktu'
+	];
+
 	protected $fillable = [
 		'created_by',
 		'judul',
+		'tgl',
+		'waktu',
+		'tempat',
 		'latar_belakang',
 		'maksud_tujuan',
-		'waktu_tempat',
 		'peserta',
 		'narasumber',
 		'bahasan',
@@ -73,5 +82,20 @@ class Proposal extends Model
 	public function proposal_donaturs()
 	{
 		return $this->hasMany(ProposalDonatur::class);
-	}
+    }
+
+    public function updatedAt()
+    {
+        return Carbon::createFromFormat('m/d/Y', $this->updated_at);
+    }
+
+    public function createdAt()
+    {
+        return Carbon::createFromFormat('m/d/Y', $this->created_at);
+    }
+
+    public function formattedDate()
+{
+    return $this->created_at->format('M d Y');
+}
 }

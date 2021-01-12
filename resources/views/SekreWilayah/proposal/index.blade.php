@@ -54,19 +54,31 @@
                                             {{$row->donate == 0 ? "No" : "Yes"}}
                                         </span>
                                     </td>
-                                    <td>{{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}</td>
-                                    <td>{{$row->updated_at}}</td>
+                                    <td>
+                                         <span class="badge badge-{{$row->status == 0 ? "warning" : ""}}">
+                                            {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}
+                                        </span>
+                                         <span class="badge badge-{{$row->status == 1 ? "success" : ""}}">
+                                            {{$row->status == 1 ? "Di Konfirmasi" : ""}}
+                                        </span>
+                                         <span class="badge badge-{{$row->status == 2 ? "danger" : ""}}">
+                                            {{$row->status == 2 ? "Di Tolak" : ""}}
+                                        </span>
+                                    </td>
+                                    <td>{{ Carbon\Carbon::parse($row->updated_at)->format('d-m-Y') }}</td>
                                     <td class="text-right">
                                         <a href="proposal/detail/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-info">
                                                 <li class="fa fa-eye"></li>
                                             </button>
                                         </a>
+                                        @if ($row->status == 0 || $row->status == 2)
                                         <a href="proposal/edit/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-warning">
                                                 <li class="fa fa-edit"></li>
                                             </button>
                                         </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

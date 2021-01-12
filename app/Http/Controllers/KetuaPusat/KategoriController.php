@@ -11,7 +11,7 @@ class KategoriController extends Controller
     public function index()
     {
         $data =  ProposalKategori::all();
-        return view("KetuaPusat/kategori/index",[
+        return view("KetuaPusat/kategori",[
             "title" => "Kategori",
             "data" => $data,
         ]);

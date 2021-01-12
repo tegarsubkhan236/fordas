@@ -12,8 +12,15 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <h3>{{$title}}</h3>
+                        </div>
+                        <div class="col-md-9">
+                            <a href="proposal/create">
+                            <button type="button" class="btn btn-success float-right">
+                                Tambah
+                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -27,7 +34,7 @@
                             <th class="text-center">Visibility</th>
                             <th class="text-center">Can Donate</th>
                             <th>Status</th>
-                            <th>Updated At</th>
+                            <th>Created At</th>
 
                             <th class="text-right">action</th>
                             </thead>
@@ -47,15 +54,19 @@
                                             {{$row->donate == 0 ? "No" : "Yes"}}
                                         </span>
                                     </td>
-                                    <td>{{$row->status}}</td>
-                                    <td>{{$row->updated_at()}}</td>
+                                    <td>
+                                        {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}
+                                        {{$row->status == 1 ? "Di Konfirmasi" : ""}}
+                                        {{$row->status == 2 ? "Di Tolak" : ""}}
+                                    </td>
+                                    <td>{{$row->created_at}}</td>
                                     <td class="text-right">
                                         <a href="proposal/detail/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-info">
                                                 <li class="fa fa-eye"></li>
                                             </button>
                                         </a>
-                                        <button type="button" data-id="{{$row->id}}" data-status="{{$row->status}}" data-judul="{{$row->judul}}" class="btn btn-sm btn-warning edit">
+                                        <button type="button" data-id="{{$row->id}}" data-status="{{$row->status}}" class="btn btn-sm btn-warning edit">
                                             <li class="fa fa-edit"></li>
                                         </button>
                                     </td>
@@ -81,20 +92,21 @@
                 </div>
                 <div class="modal-body">
                     <form action="" method="post">
-                    @csrf
-                        <h5>Judul</h5>
-                        <div class="input-group">
-                            <textarea name="judul" cols="40" rows="5" class="form-control" readonly></textarea>
-                        </div>
-                        <br><h5>Status</h5>
-                        <div class="input-group">
-                            <select name="status" class="form-control">
-                                <option value="9">Di Tolak</option>
-                                <option value="1">Konfirmasi Ketua Wilayah</option>
+                        @csrf
+                         <div class="form-group">
+                            <label >Status</label> <br>
+                            <select name="status" class="select2 form-control" style="width: 100%">
+                                <option value="0" {{@$data['status'] == 0 ? 'selected':''}}>Menunggu Konfirmasi</option>
+                                <option value="1" {{@$data['status'] == 1 ? 'selected':''}}>Di Konfirmasi</option>
+                                <option value="2" {{@$data['status'] == 2 ? 'selected':''}}>Di Tolak</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>Keterangan</label>
+                            <textarea name="keterangan" cols="15" rows="5" class="form-control"></textarea>
+                        </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </form>
@@ -122,13 +134,18 @@
             let params = $(this)
             let id = params.data("id")
             let status = params.data("status")
-            let judul = params.data("judul")
             $("#update").modal();
 
-            $("#update").find(".modal-body input[name=status]").val(status)
-            $("#update").find(".modal-body textarea[name=judul]").val(judul)
-            $("#update").find(".modal-body form").attr("action","{{route("proposal.update")}}/"+id)
+            $("#update").find(".modal-body input[status=status]").val(status)
+            $("#update").find(".modal-body form").attr("action","{{route("pusat_ketua.proposal.update")}}/"+id)
             $("#update").find(".modal-title").text("Edit Data")
+        })
+
+        $(function () {
+            $('.select2').select2()
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4'
+                })
         })
     </script>
 @stop

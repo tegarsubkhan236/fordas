@@ -11,7 +11,8 @@ class ProposalController extends Controller
 {
     public function index()
     {
-        $data = Proposal::all();
+        $current = session()->get("das_id");
+        $data = Proposal::where("created_by",$current)->get();
         return view("SekreWilayah.proposal.index",[
             "title" => "Proposal Management",
             "data" => $data,
@@ -37,7 +38,9 @@ class ProposalController extends Controller
             'judul' => "required",
             'latar_belakang' => 'required',
             'maksud_tujuan' => 'required',
-            'waktu_tempat'=> 'required',
+            'waktu'=> 'required',
+            'tgl'=> 'required',
+            'tempat'=> 'required',
             'peserta' => 'required',
             'narasumber' => 'required',
             'bahasan' => 'required',

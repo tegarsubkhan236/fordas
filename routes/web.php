@@ -56,7 +56,9 @@ Route::prefix("/pusat_ketua")->namespace("KetuaPusat")->middleware('gateway:2')-
     Route::get("/", "HomeController@index")->name("pusat_ketua.home");
     Route::get("/kategori", "KategoriController@index")->name("pusat_ketua.kategori");
     Route::get("/wilayah", "WilayahController@index")->name("pusat_ketua.wilayah");
+    Route::get("/wilayah/detail/{id}/{nama}", "WilayahController@detail")->name("pusat_ketua.wilayah.detail");
     Route::get("/proposal", "ProposalController@index")->name("pusat_ketua.proposal");
+    Route::post("/proposal/update/{id?}", "ProposalController@update")->name("pusat_ketua.proposal.update");
 });
 
 // 3. pusat sekre
