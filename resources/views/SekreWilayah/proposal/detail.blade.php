@@ -34,7 +34,7 @@
                                             <span style="font-size: x-small;">:</span>
                                         </td>
                                         <td width="200">
-                                            <span style="font-size: x-small;">005/ smk-if/ yps/ IV/ 2011</span>
+                                            <span style="font-size: x-small;">{{$data->id}}/{{$data->created_at}}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -56,7 +56,7 @@
                                             <span style="font-size: x-small;">:</span>
                                         </td>
                                         <td>
-                                            <span style="font-size: x-small;">Rapat orangtua siswa</span>
+                                            <span style="font-size: x-small;">{{$data->proposal_kategori->nama}}</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -74,44 +74,6 @@
                         <td width="339"></td>
                     </tr>
                     <tr>
-                        <td>
-                            <table border="0" style="width: 239px;">
-                                <tbody>
-                                    <tr>
-                                        <td width="74">
-                                            <span style="font-size: x-small;">kepada yth</span>
-                                        </td>
-                                        <td width="11"></td>
-                                        <td width="140"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span style="font-size: x-small;">orangtua/wali siswa</span>
-                                        </td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span style="font-size: x-small;">di</span>
-                                        </td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span style="font-size: x-small;">tempat</span>
-                                        </td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -119,11 +81,37 @@
                     <tr>
                         <td colspan="3" height="270" valign="top">
                             <div align="justify">
-                                <span style="font-size: x-small;">Dengan hormat,
-                                    Sehubungan akan diadakannya Praktek kerja industri (Prakerin) siswa kelas XI maka kami selaku pihak sekolah akan membicarakan mengenai
-                                    pelaksanaan prakerin yang akan dilaksanakan pada :
+                                <br>
+                                <h5>A. Latar Belakang</h5>
+                                <span style="font-size: x-small;">
+                                    {{$data->latar_belakang}}
                                 </span>
-                            <table border="0" style="width: 352px;">
+                                <br>
+                                <h5>B. Maksud dan Tujuan</h5>
+                                <span style="font-size: x-small;">
+                                    {{$data->maksud_tujuan}}
+                                </span>
+                                <br>
+                                <h5>C. Waktu dan Tempat Pelaksanaan</h5>
+                                <span style="font-size: x-small;">
+                                    {{$data->waktu_tempat}}
+                                </span>
+                                <br>
+                                <h5>D. Peserta</h5>
+                                <span style="font-size: x-small;">
+                                    {{$data->peserta}}
+                                </span>
+                                <br>
+                                <h5>E. Narasumber</h5>
+                                <span style="font-size: x-small;">
+                                    {{$data->narasumber}}
+                                </span>
+                                <br>
+                                <h5>F. Bahasan Acara</h5>
+                                <span style="font-size: x-small;">
+                                    {{$data->bahasan}}
+                                </span>
+                            {{-- <table border="0" style="width: 352px;">
                                 <tbody>
                                     <tr>
                                         <td width="80">
@@ -159,7 +147,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table> --}}
 
                             <div align="justify">
                                 <span style="font-size: x-small;">
@@ -175,7 +163,7 @@
                     <tr>
                         <td>
                             <div align="center">
-                                <span style="font-size: x-small;">Sekertaris,</span>
+                                <span style="font-size: x-small;">Sekretaria Forum</span>
                             </div>
                             <div align="center">
                             </div>
@@ -185,7 +173,7 @@
                         <td></td>
                         <td valign="top">
                             <div align="center">
-                                <span style="font-size: x-small;">Kepala Sekolah, </span>
+                                <span style="font-size: x-small;">Ketua Forum</span>
                             </div>
                             <div align="center">
                             </div>

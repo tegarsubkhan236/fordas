@@ -54,8 +54,8 @@
                                             {{$row->donate == 0 ? "No" : "Yes"}}
                                         </span>
                                     </td>
-                                    <td>{{$row->status}}</td>
-                                    <td>{{$row->updated_at()}}</td>
+                                    <td>{{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}</td>
+                                    <td>{{$row->updated_at}}</td>
                                     <td class="text-right">
                                         <a href="proposal/detail/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-info">

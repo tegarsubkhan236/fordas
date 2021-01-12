@@ -36,6 +36,11 @@ class ProposalController extends Controller
         $request->validate([
             'judul' => "required",
             'latar_belakang' => 'required',
+            'maksud_tujuan' => 'required',
+            'waktu_tempat'=> 'required',
+            'peserta' => 'required',
+            'narasumber' => 'required',
+            'bahasan' => 'required',
             'visibility' => 'required',
             'kategori_id' => 'required',
         ]);
