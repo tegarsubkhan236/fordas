@@ -18,6 +18,5 @@ class KategoriController extends Controller
                 "name" => "kategori.store",
             ],
         ]);
-
     }
 }

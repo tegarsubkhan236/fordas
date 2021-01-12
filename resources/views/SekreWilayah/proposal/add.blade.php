@@ -21,15 +21,10 @@
                             <label >Judul</label>
                             <input type="text" name="judul" value="{{@$data['judul']}}" class="form-control"  placeholder="Judul">
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label >Latar Belakang</label>
-                            <textarea id="summernote" name="latar_belakang">{{@$data['latar_belakang']}}</textarea>
-                        </div>
                         <div class="form-group">
                             <label >Kategori : </label>
-                            <select name="kategori_id" class="select2 form-control" style="width: 25%;">
+                            <select name="kategori_id" class="select2 form-control">
+                                <option class="hidden">Pilih Kategori</option>
                                 @foreach ($select as $row)
                                     <option value="{{$row->id}}" {{$row->id == @$data['kategori_id'] ? 'selected':''}}>{{$row->nama}}</option>
                                 @endforeach
@@ -37,17 +32,41 @@
                         </div>
                         <div class="form-group">
                             <label >Visibility : </label>
-                            <select name="visibility" class="select2 form-control" style="width: 25%;">
+                            <select name="visibility" class="select2 form-control">
                                 <option value="0" {{@$data['visibility'] == 0 ? 'selected':''}}>Tidak Di Publikasi</option>
                                 <option value="1" {{@$data['visibility'] == 1 ? 'selected':''}}>Di Publikasi</option>
                             </select>
                         </div>
                          <div class="form-group">
                             <label >Donasi : </label>
-                            <select name="donate" class="select2 form-control" style="width: 25%;">
+                            <select name="donate" class="select2 form-control">
                                 <option value="0" {{@$data['donate'] == 0 ? 'selected':''}}>Tidak Perlu Donasi</option>
                                 <option value="1" {{@$data['donate'] == 1 ? 'selected':''}}>Perlu Donasi</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label >Latar Belakang</label>
+                            <textarea id="summernote" name="latar_belakang">{{@$data['latar_belakang']}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label >Maksud dan Tujuan</label>
+                            <textarea id="summernote2" name="maksud_tujuan">{{@$data['maksud_tujuan']}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label >Waktu dan Tempat Pelaksanaan</label>
+                            <textarea id="summernote3" name="waktu_tempat">{{@$data['waktu_tempat']}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label >Pesertan Kegiatan</label>
+                            <textarea id="summernote4" name="peserta">{{@$data['peserta']}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label >Narasumber</label>
+                            <textarea id="summernote5" name="narasumber">{{@$data['narasumber']}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label >Bahasan Acara</label>
+                            <textarea id="summernote6" name="bahasan">{{@$data['bahasan']}}</textarea>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -71,6 +90,11 @@
     <script>
         $(function () {
             $('#summernote').summernote()
+            $('#summernote2').summernote()
+            $('#summernote3').summernote()
+            $('#summernote4').summernote()
+            $('#summernote5').summernote()
+            $('#summernote6').summernote()
         })
         $(function () {
             $('.select2').select2()

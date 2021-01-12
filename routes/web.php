@@ -58,17 +58,19 @@ Route::prefix("/pusat_ketua")->namespace("KetuaPusat")->middleware('gateway:2')-
 
 // 3. pusat sekre
 Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:3')->group(function () {
-    Route::get("/", "HomeController@index")->name("pusat_ketua.home");
+    Route::get("/", "HomeController@index")->name("pusat_sekre.home");
+
+    Route::get("/kategori", "KategoriController@index")->name("pusat_sekre.kategori");
+    Route::post("/kategori/store", "KategoriController@store")->name("pusat_sekre.kategori.store");
+    Route::post("/kategori/update/{id?}", "KategoriController@update")->name("pusat_sekre.kategori.update");
+    // Route::delete("/kategori/delete/{id}", "KategoriController@delete")->name("kategori.delete");
 });
 
-// 4. wilayah_sekre
+// 4. korwil
 Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:4')->group(function () {
     Route::get("/", "HomeController@index")->name("wilayah_sekre.home");
 
     Route::get("/kategori", "KategoriController@index")->name("kategori");
-    Route::get("/kategori/detail/{id}/{nama}", "KategoriController@detail")->name("kategori.detail");
-    Route::post("/kategori/store", "KategoriController@store")->name("kategori.store");
-    Route::post("/kategori/update/{id?}", "KategoriController@update")->name("kategori.update");
     // Route::delete("/kategori/delete/{id}", "KategoriController@delete")->name("kategori.delete");
 
     Route::get("/proposal", "ProposalController@index")->name("proposal");

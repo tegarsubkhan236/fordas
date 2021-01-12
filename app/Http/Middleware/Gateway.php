@@ -102,6 +102,19 @@ class Gateway
 
                 //pusat_sekre
                 elseif (in_array(3, $split) && $level == 3) {
+                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
+                        $e->menu->add([
+                            "text" => "Dashboard",
+                            "url" => "/pusat_sekre",
+                            "icon" => "fa fa-home"
+                        ]);
+                        $e->menu->add([
+                            "text" => "Kategori",
+                            "url" => "/pusat_sekre/kategori",
+                            "icon" => "fa fa-file",
+                            "active" => ["/pusat_sekre/kategori"]
+                        ]);
+                    });
                     $is_authorize = true;
                 }
 
