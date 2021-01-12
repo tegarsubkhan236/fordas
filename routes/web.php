@@ -19,9 +19,9 @@ Route::get('/', function () {
 
 Route::get('login', 'AuthController@login_page');
 Route::post('login', 'AuthController@login_process')->name('login');
-
 Route::get("/logout", "AuthController@logout")->name('logout');
 
+// 1. super admin
 Route::prefix("/super")->namespace("SuperAdmin")->middleware('gateway:1')->group(function () {
     Route::get("/", "HomeController@index")->name("super.home");
 
@@ -48,7 +48,18 @@ Route::prefix("/super")->namespace("SuperAdmin")->middleware('gateway:1')->group
     Route::delete("/das/delete/{id}", "WilayahDASController@delete")->name("das.delete");
 });
 
-Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:5')->group(function () {
+// 2. pusat_ketua
+Route::prefix("/pusat_ketua")->namespace("KetuaPusat")->middleware('gateway:2')->group(function () {
+    Route::get("/", "HomeController@index")->name("pusat_ketua.home");
+});
+
+// 3. pusat sekre
+Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:3')->group(function () {
+    Route::get("/", "HomeController@index")->name("pusat_ketua.home");
+});
+
+// 4. wilayah_sekre
+Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:4')->group(function () {
     Route::get("/", "HomeController@index")->name("wilayah_sekre.home");
 
     Route::get("/kategori", "KategoriController@index")->name("kategori");
@@ -65,21 +76,4 @@ Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:
     Route::post("/proposal/store", "ProposalController@store")->name("proposal.store");
     Route::post("/proposal/update/{id?}", "ProposalController@update")->name("proposal.update");
     // Route::delete("/proposal/delete/{id}", "ProposalController@delete")->name("proposal.delete");
-});
-
-Route::prefix("/wilayah_ketua")->namespace("KetuaWilayah")->middleware('gateway:4')->group(function () {
-    Route::get("/", "HomeController@index")->name("wilayah_ketua.home");
-
-    Route::get("/proposal", "ProposalController@index")->name("proposal");
-    Route::get("/proposal/edit/{id}", "ProposalController@edit")->name("proposal.edit");
-    Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal.detail");
-    Route::post("/proposal/update/{id?}", "ProposalController@update")->name("proposal.update");
-});
-
-Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:2')->group(function () {
-    Route::get("/", "HomeController@index")->name("pusat_ketua.home");
-});
-
-Route::prefix("/pusat_ketua")->namespace("KetuaPusat")->middleware('gateway:1')->group(function () {
-    Route::get("/", "HomeController@index")->name("pusat_ketua.home");
 });

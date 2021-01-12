@@ -33,16 +33,9 @@ class WilayahDASController extends Controller
             $user = User::insert([
                 [
                 "das_id" => $das_id->id,
-                "username" => "ketua_".$data["nama"],
+                "username" => "korwil_".$data["nama"],
                 "password" => 12345,
                 "level" => 4,
-                "status" => 1,
-                ],
-                [
-                "das_id" => $das_id->id,
-                "username" => "sekretaris_".$data["nama"],
-                "password" => 12345,
-                "level" => 5,
                 "status" => 1,
                 ],
             ]);

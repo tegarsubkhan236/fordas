@@ -45,9 +45,9 @@ class AuthController extends Controller
             } elseif($find->first()->level == 3){
                 $pages = "pusat_sekre";
             } elseif($find->first()->level == 4){
-                $pages = "wilayah_ketua";
-            } elseif($find->first()->level == 5){
                 $pages = "wilayah_sekre";
+            } elseif($find->first()->level == 5){
+                $pages = "donatur";
             }
 
             return redirect("/" .$pages)->with(["msg" => "Login Successfully !"]);

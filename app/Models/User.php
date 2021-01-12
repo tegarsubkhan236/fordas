@@ -7,11 +7,12 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class User
- *
+ * 
  * @property int $id
  * @property string $username
  * @property string $password
@@ -20,8 +21,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
+ * 
  * @property WilayahDa|null $wilayah_da
+ * @property Collection|ProposalDonatur[] $proposal_donaturs
  *
  * @package App\Models
  */
@@ -35,12 +37,11 @@ class User extends Model
 		'status' => 'int'
 	];
 
-	// protected $hidden = [
-	// 	'password'
-	// ];
+	protected $hidden = [
+		'password'
+	];
 
 	protected $fillable = [
-        'password',
 		'username',
 		'password',
 		'das_id',
@@ -51,5 +52,10 @@ class User extends Model
 	public function wilayah_da()
 	{
 		return $this->belongsTo(WilayahDa::class, 'das_id');
+	}
+
+	public function proposal_donaturs()
+	{
+		return $this->hasMany(ProposalDonatur::class);
 	}
 }
