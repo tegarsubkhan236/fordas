@@ -19,7 +19,10 @@ Route::get('/', function () {
 
 Route::get('login', 'AuthController@login_page');
 Route::post('login', 'AuthController@login_process')->name('login');
+Route::get('register', 'AuthController@register_page');
+Route::post('register', 'AuthController@register_process')->name('register');
 Route::get("/logout", "AuthController@logout")->name('logout');
+Route::get("/list", "HomeController@list")->name('list');
 
 // 1. super admin
 Route::prefix("/super")->namespace("SuperAdmin")->middleware('gateway:1')->group(function () {
@@ -76,4 +79,9 @@ Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:
     Route::post("/proposal/store", "ProposalController@store")->name("proposal.store");
     Route::post("/proposal/update/{id?}", "ProposalController@update")->name("proposal.update");
     // Route::delete("/proposal/delete/{id}", "ProposalController@delete")->name("proposal.delete");
+});
+
+// 5. donatur
+Route::prefix("/donatur")->namespace("Donatur")->middleware('gateway:5')->group(function () {
+    Route::get("/", "HomeController@index")->name("donatur.home");
 });

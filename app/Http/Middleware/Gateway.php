@@ -143,24 +143,6 @@ class Gateway
                             "url" => "/wilayah_sekre",
                             "icon" => "fa fa-home"
                         ]);
-                        $e->menu->add([
-                            "text" => "Kategori",
-                            "url" => "/wilayah_sekre/kategori",
-                            "icon" => "fa fa-file",
-                            "active" => ["/wilayah_sekre/kategori"]
-                        ]);
-                        $e->menu->add([
-                            "text" => "Proposal",
-                            "url" => "/wilayah_sekre/proposal",
-                            "icon" => "fa fa-file",
-                            "active" => ["/wilayah_sekre/proposal"]
-                        ]);
-                        $e->menu->add([
-                            "text" => "Add Proposal",
-                            "url" => "/wilayah_sekre/proposal/create",
-                            "icon" => "fa fa-file",
-                            "active" => ["/wilayah_sekre/proposal/create"]
-                        ]);
                     });
                     $is_authorize = true;
                 }
