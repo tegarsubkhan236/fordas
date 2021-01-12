@@ -17,6 +17,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $created_by
  * @property string $judul
  * @property string|null $latar_belakang
+ * @property string|null $maksud_tujuan
+ * @property string|null $waktu_tempat
+ * @property string|null $peserta
+ * @property string|null $narasumber
+ * @property string|null $bahasan
  * @property int $kategori_id
  * @property int $status
  * @property bool $visibility
@@ -47,6 +52,11 @@ class Proposal extends Model
 		'created_by',
 		'judul',
 		'latar_belakang',
+		'maksud_tujuan',
+		'waktu_tempat',
+		'peserta',
+		'narasumber',
+		'bahasan',
 		'kategori_id',
 		'status',
 		'visibility',

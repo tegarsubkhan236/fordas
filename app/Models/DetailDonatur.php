@@ -11,12 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class DetailDonatur
- *
+ * 
  * @property int $id
  * @property string $name
  * @property string $gender
  * @property string $alamat
- * @property string $email
  * @property string $no_hp
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at

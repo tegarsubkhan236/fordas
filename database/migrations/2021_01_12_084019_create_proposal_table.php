@@ -18,6 +18,11 @@ class CreateProposalTable extends Migration
             $table->integer('created_by')->nullable();
             $table->string('judul');
             $table->text('latar_belakang')->nullable();
+            $table->text('maksud_tujuan')->nullable();
+            $table->text('waktu_tempat')->nullable();
+            $table->text('peserta')->nullable();
+            $table->text('narasumber')->nullable();
+            $table->text('bahasan')->nullable();
             $table->integer('kategori_id')->index('kategori_id');
             $table->integer('status');
             $table->boolean('visibility');
