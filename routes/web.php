@@ -22,7 +22,13 @@ Route::post('login', 'AuthController@login_process')->name('login');
 Route::get('register', 'AuthController@register_page');
 Route::post('register', 'AuthController@register_process')->name('register');
 Route::get("/logout", "AuthController@logout")->name('logout');
-Route::get("/list", "HomeController@list")->name('list');
+
+//FRONT
+Route::get("/all_fordas", "HomeController@all_fordas")->name('all_fordas');
+Route::get("/all_fordas/{id}", "HomeController@all_fordas_detail")->name('all_fordas_detail');
+Route::get("/fordas_detail/{id}", "HomeController@fordas_detail")->name('fordas_detail');
+Route::get("/fordas_list_laporan/{id}", "HomeController@fordas_list_laporan")->name('fordas_list_laporan');
+Route::get("/view_laporan/{id}", "HomeController@view_laporan")->name('view_laporan');
 
 // 1. super admin
 Route::prefix("/super")->namespace("SuperAdmin")->middleware('gateway:1')->group(function () {

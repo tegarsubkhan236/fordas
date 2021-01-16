@@ -94,42 +94,42 @@
                                 <br>
                                 <h5>C. Waktu dan Tempat Pelaksanaan</h5>
                                 <table border="0" style="width: 352px;">
-                                <tbody>
-                                    <tr>
-                                        <td width="80">
-                                            <span style="font-size: x-small;">hari/tanggal</span>
-                                        </td>
-                                        <td width="10">
-                                            <span style="font-size: x-small;">:</span>
-                                        </td>
-                                        <td width="248">
-                                            <span style="font-size: x-small;">{{$data->tgl}}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span style="font-size: x-small;">waktu</span>
-                                        </td>
-                                        <td>
-                                            <span style="font-size: x-small;">:</span>
-                                        </td>
-                                        <td>
-                                            <span style="font-size: x-small;">{{$data->waktu}}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span style="font-size: x-small;">tempat</span>
-                                        </td>
-                                        <td>
-                                            <span style="font-size: x-small;">:</span>
-                                        </td>
-                                        <td>
-                                            <span style="font-size: x-small;">{{$data->tempat}}</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                        <tr>
+                                            <td width="80">
+                                                <span style="font-size: x-small;">hari/tanggal</span>
+                                            </td>
+                                            <td width="10">
+                                                <span style="font-size: x-small;">:</span>
+                                            </td>
+                                            <td width="248">
+                                                <span style="font-size: x-small;">{{$data->tgl}}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span style="font-size: x-small;">waktu</span>
+                                            </td>
+                                            <td>
+                                                <span style="font-size: x-small;">:</span>
+                                            </td>
+                                            <td>
+                                                <span style="font-size: x-small;">{{$data->waktu}}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span style="font-size: x-small;">tempat</span>
+                                            </td>
+                                            <td>
+                                                <span style="font-size: x-small;">:</span>
+                                            </td>
+                                            <td>
+                                                <span style="font-size: x-small;">{{$data->tempat}}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <br>
                                 <h5>D. Peserta</h5>
                                 <span style="font-size: x-small;">
