@@ -48,6 +48,21 @@
                                     <div class="card-body">
                                         <div class="card-text"><br>{!! substr($item->latar_belakang, 0,  200) !!}....</div>
                                     </div>
+                                    <div class="card-footer">
+                                        @if (session()->get("level") == 5)
+                                            <a href="/donasi/{{ $item->id }}">
+                                                <button type="button" class="btn btn-primary btn-block">
+                                                    Donasi
+                                                </button>
+                                            </a>
+                                        @else
+                                            <a href="/login">
+                                                <button type="button" class="btn btn-primary btn-block">
+                                                    Donasi
+                                                </button>
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
                             </li>                        
                             @endforeach

@@ -92,6 +92,21 @@
                             <div class="card-text">{!! $data->bahasan !!}</div>
                             <br>
                         </div>
+                        <div class="card-footer">
+                            @if (session()->get("level") == 5)
+                                <a href="/donasi/{{ $data->id }}">
+                                    <button type="button" class="btn btn-primary btn-block">
+                                        Donasi
+                                    </button>
+                                </a>
+                            @else
+                                <a href="/login">
+                                    <button type="button" class="btn btn-primary btn-block">
+                                        Donasi
+                                    </button>
+                                </a>
+                            @endif
+                        </div>
                       </div>
                 </div>
 

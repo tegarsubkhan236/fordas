@@ -39,7 +39,6 @@ class AuthController extends Controller
             "no_hp" => "required",
         ]);
         $data = $req->all();
-        unset($data["_Token"]);
         $create_user = User::create([
             "username" => $data["username"],
             "password" => $data["password"],
@@ -47,7 +46,8 @@ class AuthController extends Controller
             "status" => 1,
         ]);
         if($create_user){
-            $detail_user = DetailDonatur::create([
+            DetailDonatur::create([
+                    "user_id" => $create_user->id,
                     "name" => $data["name"],
                     "gender" => $data["gender"],
                     "alamat" => $data["alamat"],
@@ -88,7 +88,7 @@ class AuthController extends Controller
             } elseif($find->first()->level == 4){
                 $pages = "wilayah_sekre";
             } elseif($find->first()->level == 5){
-                $pages = "donatur";
+                return redirect()->route('landing')->with(["msg" => "Login Successfully"]);
             }
 
             return redirect("/" .$pages)->with(["msg" => "Login Successfully !"]);

@@ -28,12 +28,23 @@
             @endforeach
         </div>
         <h2 class="ds-option-set-head  h6">My Account</h2>
-        <div
-            id="aspect_viewArtifacts_Navigation_list_account"
-            class="list-group">
-            <a href="/login" class="list-group-item ds-option">Login</a>
-            <a href="/register" class="list-group-item ds-option">Register</a>
-        </div>
+        @if (session()->get('level'))
+            <div
+                id="aspect_viewArtifacts_Navigation_list_account"
+                class="list-group">
+                <a href="/donatur/profile" class="list-group-item ds-option">My Profile</a>
+                <a href="/donatur/dashboard" class="list-group-item ds-option">My Dashboard</a>
+                <a href="/logout" class="list-group-item ds-option">Logout</a>
+            </div>
+        @else
+            <div
+                id="aspect_viewArtifacts_Navigation_list_account"
+                class="list-group">
+                <a href="/login" class="list-group-item ds-option">Login</a>
+                <a href="/register" class="list-group-item ds-option">Register</a>
+            </div>      
+        @endif
+        
         <div id="aspect_viewArtifacts_Navigation_list_context" class="list-group">
         <div id="aspect_viewArtifacts_Navigation_list_administrative" class="list-group">
     </div>

@@ -8,7 +8,11 @@ use App\Models\Wilayah;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
-{
+{   
+    public function landing()
+    {
+        return view("Landing.pages.landing");
+    }
     public function all_fordas()
     {
         $data = Wilayah::all();

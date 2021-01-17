@@ -166,18 +166,16 @@ class Gateway
                 }
 
                 //donatur
-                elseif (in_array(5, $split) && $level == 5) {
-                    Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
-                        $e->menu->add([
-                            "text" => "Dashboard",
-                            "url" => "/wilayah_sekre",
-                            "icon" => "fa fa-home"
-                        ]);
-                    });
-                    $is_authorize = true;
-                }
-
-                //logout
+                // elseif (in_array(5, $split) && $level == 5) {
+                //     Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
+                //         $e->menu->add([
+                //             "text" => "Dashboard",
+                //             "url" => "/wilayah_sekre",
+                //             "icon" => "fa fa-home"
+                //         ]);
+                //     });
+                //     $is_authorize = true;
+                // }
                 Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
                     $e->menu->add([
                         "text" => "Logout",
