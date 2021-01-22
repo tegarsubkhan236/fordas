@@ -25,21 +25,27 @@
                         <h2 class="ds-div-head page-header first-page-header">
                             Hallo {{ $data->name }} !!
                         </h2>
-                        <div id="file_news_div_news" class="ds-static-div primary">
-                            <p class="ds-paragraph">
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            </p>
-                            <p class="ds-paragraph">&nbsp;</p>
-                            <p class="ds-paragraph">
-                                <span class="bold">Pengumuman:</span>
-                            </p>
-                            <p class="ds-paragraph">
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            </p>
-                            <p class="ds-paragraph">
-                               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            </p>
-                        </div>
+                        <a href="/profile" class="list-group-item active">
+                            <span class="h5 list-group-item-heading h5"><center>My Profile</center></span>
+                        </a>
+                        <form class="mt-3">
+                            <div class="form-group">
+                              <label for="..">Nama</label>
+                              <input type="text" class="form-control" value={{$data->name}} disabled>
+                            </div>
+                            <div class="form-group">
+                              <label for="..">Jenis Kelamin</label>
+                              <input type="text" class="form-control" value={{$data->gender = "L" ? "Laki-Laki" : "Perempuan"}} disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="..">Nomer HP</label>
+                                <input type="text" class="form-control" value={{$data->no_hp}} disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="..">Alamat</label>
+                              <textarea class="form-control" cols="15" rows="5" disabled>{{$data->alamat}}</textarea>
+                              </div>
+                          </form>
                     </div>
                 </div>
                 {{-- sidebar --}}

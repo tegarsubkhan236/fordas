@@ -28,12 +28,12 @@
                     <div class="table-responsive">
                         <table class="table-bordered table-hover table" id="dtable">
                             <thead class="thead-dark">
-                            <th>Id</th>
                             <th>Title</th>
                             <th>Type</th>
                             <th class="text-center">Visibility</th>
                             <th class="text-center">Can Donate</th>
                             <th>Status</th>
+                            <th>Keterangan</th>
                             <th>Updated At</th>
 
                             <th class="text-right">action</th>
@@ -41,7 +41,6 @@
                             <tbody>
                             @foreach($data as $key => $row)
                                 <tr>
-                                    <td>{{($key+1)}}</td>
                                     <td>{{$row->judul}}</td>
                                     <td>{{$row->proposal_kategori->nama}}</td>
                                     <td class="text-center">
@@ -65,6 +64,7 @@
                                             {{$row->status == 2 ? "Di Tolak" : ""}}
                                         </span>
                                     </td>
+                                    <td>{{$row->keterangan}}</td>
                                     <td>{{ Carbon\Carbon::parse($row->updated_at)->format('d-m-Y') }}</td>
                                     <td class="text-right">
                                         <a href="proposal/detail/{{$row->id}}">

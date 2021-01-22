@@ -34,7 +34,7 @@
                                             <span style="font-size: x-small;">:</span>
                                         </td>
                                         <td width="200">
-                                            <span style="font-size: x-small;">{{$data->id}}/{{ Carbon\Carbon::parse($data->created_at)->format('Y-m-d') }}</span>
+                                            <span style="font-size: x-small;">{{$data->id}}/{{ Carbon\Carbon::parse($data->created_at)->format('d-m-Y') }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -53,7 +53,7 @@
                         </td>
                         <td valign="top">
                             <div align="right">
-                                <span style="font-size: x-small;">{{$data->tempat}}, {{ Carbon\Carbon::parse($data->created_at)->format('d-m-Y') }}</span>
+                            <span style="font-size: x-small;">{{$data->tempat}}, {{ Carbon\Carbon::parse($data->created_at)->format('d-m-Y') }}</span>
                             </div>
                         </td>
                     </tr>

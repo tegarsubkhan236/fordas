@@ -5,6 +5,7 @@ namespace App\Http\Controllers\KetuaPusat;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Proposal;
+use App\Models\ProposalKategori;
 
 class ProposalController extends Controller
 {
@@ -31,4 +32,17 @@ class ProposalController extends Controller
         }
         return back()->with(["msg" => "Data gagal diupdate !"]);
    }
+
+   public function detail($id)
+    {
+
+        $data = Proposal::where('id', $id)->first();
+        $select = ProposalKategori::all();
+
+        return view("KetuaPusat.detail_proposal",[
+            "title" => "Detail Proposal",
+            "data" => $data,
+            "select" => $select,
+        ]);
+    }
 }

@@ -41,13 +41,13 @@ class HomeController extends Controller
         $CAN_Donate = [
             'created_by' => $id,
             'visibility' => 1,
-            'status' => 2,
+            'status' => 1,
             'donate' => 1,
         ];
         $CANT_Donate = [
             'created_by' => $id,
             'visibility' => 1,
-            'status' => 2,
+            'status' => 1,
             'donate' => 0,
         ];
         $detail = WilayahDA::where('id',$id)->first();
