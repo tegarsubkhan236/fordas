@@ -10,8 +10,15 @@ class HomeController extends Controller
 {
     public function profile()
     {
-
-        $data = DetailDonatur::where('user_id', session()->get("id"))->first();
+        $id = session()->get("id");
+        $data = DetailDonatur::where(['user_id' => $id])->first();
         return view('Donatur.profile', compact('data'));
+    }
+
+    public function dashboard()
+    {
+        $id = session()->get("id");
+        $data = DetailDonatur::where(['user_id' => $id])->first();
+        return view('Donatur.dashboard', compact('data'));
     }
 }

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    
+
     <div id="MathJax_Message" style="display: none;"> </div>
     {{-- Header --}}
     @include('Landing.header')
@@ -23,6 +23,50 @@
                     <ul class="list-group">
                         <li class="list-group-item text-center"><h4>Wilayah DAS {{ $detail->nama }}</h4></li>
                     </ul>
+                    {{-- Tidak Perlu Donasi --}}
+                    <ul class="list-group">
+                        <li class="list-group-item active" aria-current="true">Proposal</li>
+                        @if (   $list_cant->count() > 0)
+                            @foreach (   $list_cant as $item)
+                            <li class="list-group-item">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <a href="/view_laporan/{{ $item->id }}">
+                                                    {{ $item->judul }}
+                                                </a>
+                                            </div>
+                                            {{-- <div class="col-md-3">{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</div> --}}
+                                            <div class="col-md-3">
+                                                <div class="pull-right">
+                                                    {{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-text"><br>{!! substr($item->latar_belakang, 0,  200) !!}....</div>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                        @else
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h3 class="text-center">Laporan Tidak Tersedia</h3></div>
+                            </div>
+                        </div>
+                        @endif
+                        <br/>
+                        Halaman : {{    $list_cant->currentPage() }} <br/>
+                        Jumlah Data : {{    $list_cant->total() }} <br/>
+                        Data Per Halaman : {{    $list_cant->perPage() }} <br/>
+
+                        {!!    $list_cant->render() !!}
+                    </ul>
+
                     {{-- Perlu Donasi --}}
                     <ul class="list-group">
                         <li class="list-group-item active" aria-current="true">Perlu Donasi</li>
@@ -34,12 +78,12 @@
                                         <div class="row">
                                             <div class="col-md-9">
                                                 <a href="/view_laporan/{{ $item->id }}">
-                                                    {{ $item->judul }} 
+                                                    {{ $item->judul }}
                                                 </a>
                                             </div>
                                             {{-- <div class="col-md-3">{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</div> --}}
                                             <div class="col-md-3">
-                                                <div class="pull-right"> 
+                                                <div class="pull-right">
                                                     {{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}
                                                 </div>
                                             </div>
@@ -56,7 +100,7 @@
                                                 </button>
                                             </a>
                                         @else
-                                            <a href="/login">
+                                            <a href="/pilih_donasi/{{ $item->id }}">
                                                 <button type="button" class="btn btn-primary btn-block">
                                                     Donasi
                                                 </button>
@@ -64,9 +108,9 @@
                                         @endif
                                     </div>
                                 </div>
-                            </li>                        
+                            </li>
                             @endforeach
-                        @else 
+                        @else
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-text">
@@ -78,53 +122,10 @@
                         Halaman : {{   $list_can->currentPage() }} <br/>
                         Jumlah Data : {{   $list_can->total() }} <br/>
                         Data Per Halaman : {{   $list_can->perPage() }} <br/>
-                    
+
                         {!!   $list_can->render() !!}
                     </ul>
 
-                    {{-- Tidak Perlu Donasi --}}
-                    <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Tidak Perlu Donasi</li>
-                        @if (   $list_cant->count() > 0)
-                            @foreach (   $list_cant as $item)
-                            <li class="list-group-item">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <a href="/view_laporan/{{ $item->id }}">
-                                                    {{ $item->judul }} 
-                                                </a>
-                                            </div>
-                                            {{-- <div class="col-md-3">{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</div> --}}
-                                            <div class="col-md-3">
-                                                <div class="pull-right"> 
-                                                    {{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-text"><br>{!! substr($item->latar_belakang, 0,  200) !!}....</div>
-                                    </div>
-                                </div>
-                            </li>                        
-                            @endforeach
-                        @else 
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    <h3 class="text-center">Laporan Tidak Tersedia</h3></div>
-                            </div>
-                        </div>
-                        @endif
-                        <br/>
-                        Halaman : {{    $list_cant->currentPage() }} <br/>
-                        Jumlah Data : {{    $list_cant->total() }} <br/>
-                        Data Per Halaman : {{    $list_cant->perPage() }} <br/>
-                    
-                        {!!    $list_cant->render() !!}
-                    </ul>
                 </div>
                 {{-- sidebar --}}
                 @include('Landing.sidebar')
