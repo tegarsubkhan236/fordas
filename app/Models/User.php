@@ -23,7 +23,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $updated_at
  * 
  * @property WilayahDa|null $wilayah_da
- * @property Collection|DetailDonatur[] $detail_donaturs
  * @property Collection|ProposalDonatur[] $proposal_donaturs
  *
  * @package App\Models
@@ -53,11 +52,6 @@ class User extends Model
 	public function wilayah_da()
 	{
 		return $this->belongsTo(WilayahDa::class, 'das_id');
-	}
-
-	public function detail_donaturs()
-	{
-		return $this->hasMany(DetailDonatur::class);
 	}
 
 	public function proposal_donaturs()

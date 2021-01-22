@@ -72,10 +72,39 @@ class ProposalController extends Controller
             "data" => $data,
             "select" => $select,
             "route" => [
-                "name" => "proposal.store",
-                "params" => ""
+                "name" => "proposal.update",
+                "params" => $id
             ],
         ]);
+    }
+
+    public function update(Request $req,$id)
+    {
+        $req->validate([
+            'judul' => "required",
+            'latar_belakang' => 'required',
+            'maksud_tujuan' => 'required',
+            'waktu'=> 'required',
+            'tgl'=> 'required',
+            'tempat'=> 'required',
+            'peserta' => 'required',
+            'narasumber' => 'required',
+            'bahasan' => 'required',
+            'visibility' => 'required',
+            'kategori_id' => 'required',
+        ]);
+        $data = $req->except('_token');
+        $data['status'] = 0;
+        $data['created_by'] = session()->get('das_id');
+        $data["created_at"] = date("Y-m-d");
+        $data["updated_at"] = date("Y-m-d");
+        $store = Proposal::where('id',$id)->update($data);
+
+        if ($store) {
+            return redirect('wilayah_sekre/proposal')->with(["msg" => "Data berhasil disimpan !"]);
+        } else {
+            return back()->with(["msg" => "Data gagal disimpan !"]);
+        }
     }
 
     public function detail($id)

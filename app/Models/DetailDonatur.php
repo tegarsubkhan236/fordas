@@ -20,8 +20,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $no_hp
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
- * @property User|null $user
  *
  * @package App\Models
  */
@@ -40,9 +38,4 @@ class DetailDonatur extends Model
 		'alamat',
 		'no_hp'
 	];
-
-	public function user()
-	{
-		return $this->belongsTo(User::class);
-	}
 }

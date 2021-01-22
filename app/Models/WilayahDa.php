@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $nama
  * 
  * @property Wilayah $wilayah
+ * @property Collection|Proposal[] $proposals
  * @property Collection|User[] $users
  *
  * @package App\Models
@@ -38,6 +39,11 @@ class WilayahDa extends Model
 	public function wilayah()
 	{
 		return $this->belongsTo(Wilayah::class);
+	}
+
+	public function proposals()
+	{
+		return $this->hasMany(Proposal::class, 'created_by');
 	}
 
 	public function users()

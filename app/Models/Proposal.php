@@ -34,6 +34,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $files
  * 
  * @property ProposalKategori $proposal_kategori
+ * @property WilayahDa|null $wilayah_da
  * @property Collection|ProposalDonatur[] $proposal_donaturs
  *
  * @package App\Models
@@ -77,6 +78,11 @@ class Proposal extends Model
 	public function proposal_kategori()
 	{
 		return $this->belongsTo(ProposalKategori::class, 'kategori_id');
+	}
+
+	public function wilayah_da()
+	{
+		return $this->belongsTo(WilayahDa::class, 'created_by');
 	}
 
 	public function proposal_donaturs()

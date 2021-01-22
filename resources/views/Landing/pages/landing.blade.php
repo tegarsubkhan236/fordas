@@ -25,7 +25,7 @@
                     style="min-height: 1967px;">
                     <div>
                         <h2 class="ds-div-head page-header first-page-header">
-                            Welcome to Sistem Informasi FORDAS
+                            Selamat Datang di FORDAS
                         </h2>
                         <div id="file_news_div_news" class="ds-static-div primary">
                             <p class="ds-paragraph">

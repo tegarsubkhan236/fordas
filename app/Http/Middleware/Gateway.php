@@ -110,27 +110,27 @@ class Gateway
                             'submenu' => [
                                 [
                                     'text' => 'Kategori Proposal',
-                                    'url'  => '/',
+                                    'url'  => '/pusat_sekre/kategori',
                                 ],
-                                [
-                                    'text' => 'DAS',
-                                    'url'  => '/',
-                                ],
+                                // [
+                                //     'text' => 'DAS',
+                                //     'url'  => '/',
+                                // ],
                             ],
                         ]);
 
-                        $e->menu->add([
-                            "text" => "Proposal",
-                            "url" => "/",
-                            "icon" => "fa fa-file"
-                        ]);
+                        // $e->menu->add([
+                        //     "text" => "Proposal",
+                        //     "url" => "/",
+                        //     "icon" => "fa fa-file"
+                        // ]);
 
-                        $e->menu->add([
-                            "text" => "Add Proposal",
-                            "url" => "/",
-                            "icon" => "fa fa-file",
-                            "active" => ["/"]
-                        ]);
+                        // $e->menu->add([
+                        //     "text" => "Add Proposal",
+                        //     "url" => "/",
+                        //     "icon" => "fa fa-file",
+                        //     "active" => ["/"]
+                        // ]);
                     });
                     $is_authorize = true;
                 }
@@ -176,6 +176,7 @@ class Gateway
                 //     });
                 //     $is_authorize = true;
                 // }
+
                 Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
                     $e->menu->add([
                         "text" => "Logout",

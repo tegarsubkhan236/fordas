@@ -16,11 +16,6 @@
                             <h3>{{$title}}</h3>
                         </div>
                         <div class="col-md-9">
-                            <a href="proposal/create">
-                            <button type="button" class="btn btn-success float-right">
-                                Tambah
-                            </button>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -28,20 +23,20 @@
                     <div class="table-responsive">
                         <table class="table-bordered table-hover table" id="dtable">
                             <thead class="thead-dark">
-                            <th>Id</th>
-                            <th>Title</th>
-                            <th>Type</th>
+                            <th>Dibuat Oleh</th>
+                            <th>Judul</th>
+                            <th>Tipe Proposal</th>
                             <th class="text-center">Visibility</th>
-                            <th class="text-center">Can Donate</th>
+                            <th class="text-center">Donasi</th>
                             <th>Status</th>
-                            <th>Created At</th>
+                            <th>Dibuat Pada Tanggal</th>
 
                             <th class="text-right">action</th>
                             </thead>
                             <tbody>
                             @foreach($data as $key => $row)
                                 <tr>
-                                    <td>{{($key+1)}}</td>
+                                    <td>{{$row->wilayah_da->nama}}</td>
                                     <td>{{$row->judul}}</td>
                                     <td>{{$row->proposal_kategori->nama}}</td>
                                     <td class="text-center">
@@ -59,7 +54,7 @@
                                         {{$row->status == 1 ? "Di Konfirmasi" : ""}}
                                         {{$row->status == 2 ? "Di Tolak" : ""}}
                                     </td>
-                                    <td>{{$row->created_at}}</td>
+                                    <td>{{ Carbon\Carbon::parse($row->created_at)->format('d-m-Y') }}</td>
                                     <td class="text-right">
                                         <a href="proposal/detail/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-info">
@@ -95,7 +90,7 @@
                         @csrf
                          <div class="form-group">
                             <label >Status</label> <br>
-                            <select name="status" class="select2 form-control" style="width: 100%">
+                            <select name="status" class="select2 form-control" style="width: 100%" id="status">
                                 <option value="0" {{@$data['status'] == 0 ? 'selected':''}}>Menunggu Konfirmasi</option>
                                 <option value="1" {{@$data['status'] == 1 ? 'selected':''}}>Di Konfirmasi</option>
                                 <option value="2" {{@$data['status'] == 2 ? 'selected':''}}>Di Tolak</option>
@@ -128,6 +123,7 @@
     @include('msg');
     <script>
         $("#dtable").DataTable({
+            "order": [[ 7, "desc" ]]
         });
 
         $("#dtable .edit").on("click",function(){
