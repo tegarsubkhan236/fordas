@@ -101,5 +101,7 @@ Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:
 Route::prefix("/donatur")->namespace("Donatur")->group(function () {
     Route::get("/profile", "HomeController@profile")->name("donatur.profile");
     Route::get("/dashboard", "HomeController@dashboard")->name("donatur.dashboard");
-    Route::get("/pilih_donasi/{id}", "DonasiController@dashboard")->name("donatur.pilih_donasi");
+    Route::get("/pilih_donasi/{id}", "DonasiController@pilih_donasi")->name("donatur.pilih_donasi");
+    Route::get("/form_bayar_donasi/{id}", "DonasiController@form_bayar_donasi")->name("donatur.form_bayar_donasi");
+    Route::post("/proses_bayar/{id}", "DonasiController@proses_bayar")->name("donatur.proses_bayar");
 });

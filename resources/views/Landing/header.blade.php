@@ -14,7 +14,7 @@
                     </button>
                     <a class="" href="/">
                         {{-- src="{{ asset('asset/Repository_logo.png') }}" --}}
-                        <img alt="BANNER" class="img-responsive" src="https://ipsumimage.appspot.com/1140x100" />
+                        <img alt="BANNER" class="img-responsive" src="{{ asset('asset/logo.png') }}" />
                     </a>
                     <div
                         class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">

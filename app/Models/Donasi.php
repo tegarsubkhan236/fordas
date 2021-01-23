@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -17,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $bukti_transfer
  * @property string|null $keterangan
  * @property int|null $detail_donatur_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * 
  * @property Proposal|null $proposal
  * @property DetailDonatur|null $detail_donatur
@@ -26,7 +29,6 @@ use Illuminate\Database\Eloquent\Model;
 class Donasi extends Model
 {
 	protected $table = 'donasi';
-	public $timestamps = false;
 
 	protected $casts = [
 		'proposal_id' => 'int',
