@@ -100,7 +100,7 @@ class Gateway
                     Event::listen("JeroenNoten\LaravelAdminLte\Events\BuildingMenu", function ($e) {
                         $e->menu->add([
                             "text" => "Dashboard",
-                            "url" => "/",
+                            "url" => "/pusat_sekre",
                             "icon" => "fa fa-home"
                         ]);
 
@@ -119,11 +119,17 @@ class Gateway
                             ],
                         ]);
 
-                        // $e->menu->add([
-                        //     "text" => "Proposal",
-                        //     "url" => "/",
-                        //     "icon" => "fa fa-file"
-                        // ]);
+                        $e->menu->add([
+                            "text" => "Proposal",
+                            "url" => "/pusat_sekre/proposal",
+                            "icon" => "fa fa-file"
+                        ]);
+
+                        $e->menu->add([
+                            "text" => "Donasi",
+                            "url" => "/pusat_sekre/donasi",
+                            "icon" => "fa fa-file"
+                        ]);
 
                         // $e->menu->add([
                         //     "text" => "Add Proposal",

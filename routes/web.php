@@ -78,6 +78,14 @@ Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:3')-
     Route::post("/kategori/store", "KategoriController@store")->name("pusat_sekre.kategori.store");
     Route::post("/kategori/update/{id?}", "KategoriController@update")->name("pusat_sekre.kategori.update");
     // Route::delete("/kategori/delete/{id}", "KategoriController@delete")->name("kategori.delete");
+
+    Route::get("/donasi", "DonasiController@index")->name("donasi");
+    Route::get("/donasi/detail/{id}", "DonasiController@detail")->name("donasi.detail");
+    Route::get("/donasi/edit/{id}", "DonasiController@edit")->name("donasi.edit");
+    Route::post("/donasi/update/{id}", "DonasiController@update")->name("donasi.update");
+
+    Route::get("/proposal", "ProposalController@index")->name("proposal");
+    Route::get("/proposal/detail/{id}", "ProposalController@detail_proposal")->name("proposal");
 });
 
 // 4. korwil
