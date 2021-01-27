@@ -31,7 +31,8 @@
                             <th>Title</th>
                             <th>Type</th>
                             <th class="text-center">Visibility</th>
-                            <th class="text-center">Can Donate</th>
+                            <th class="text-center">Donasi</th>
+                            <th class="text-center">Aktifitas</th>
                             <th>Status</th>
                             <th>Keterangan</th>
                             <th>Updated At</th>
@@ -49,9 +50,18 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
+                                        <a href="/wilayah_sekre/proposal/donasi/{{$row->id}}/detail">
                                         <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
                                             {{$row->donate == 0 ? "No" : "Yes"}}
                                         </span>
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/wilayah_sekre/proposal/aktifitas/{{$row->id}}/detail">
+                                            <span class="badge badge-info">
+                                                aktifitas
+                                            </span>
+                                        </a>
                                     </td>
                                     <td>
                                          <span class="badge badge-{{$row->status == 0 ? "warning" : ""}}">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DetailDonatur;
 use App\Models\Donasi;
 use Illuminate\Http\Request;
+use PDF;
 
 class DonasiController extends Controller
 {
@@ -77,6 +78,12 @@ class DonasiController extends Controller
         return back()->with(["msg" => "Data berhasil di update !"]);
     }
 
+    public function cetak_bukti($id)
+    {
+        $data = Donasi::where('id',$id)->first();
+        $pdf = PDF::loadview('Donatur.bukti_donasi',compact('data'));
+        return $pdf->download('laporan-pegawai-pdf');
+    }
     public function test($id)
     {
         return $id;

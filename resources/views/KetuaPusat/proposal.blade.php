@@ -135,8 +135,7 @@
 @section('js')
     @include('msg');
     <script>
-        $("#dtable").DataTable({
-        });
+        $("#dtable").DataTable();
 
         $("#dtable .edit").on("click",function(){
             let params = $(this)
