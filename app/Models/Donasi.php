@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $bukti_transfer
  * @property string|null $keterangan
  * @property int|null $detail_donatur_id
+ * @property int $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
@@ -33,7 +34,8 @@ class Donasi extends Model
 	protected $casts = [
 		'proposal_id' => 'int',
 		'total_donasi' => 'int',
-		'detail_donatur_id' => 'int'
+		'detail_donatur_id' => 'int',
+		'status' => 'int'
 	];
 
 	protected $fillable = [
@@ -41,7 +43,8 @@ class Donasi extends Model
 		'total_donasi',
 		'bukti_transfer',
 		'keterangan',
-		'detail_donatur_id'
+		'detail_donatur_id',
+		'status'
 	];
 
 	public function proposal()

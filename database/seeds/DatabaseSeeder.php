@@ -17,5 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call(WilayahDasTableSeeder::class);
 
         $this->call(UsersTableSeeder::class);
+        $this->call(ProposalKategoriTableSeeder::class);
+        $this->call(ProposalTableSeeder::class);
+        $this->call(ProposalDonaturTableSeeder::class);
+        $this->call(DetailDonaturTableSeeder::class);
+        $this->call(DonasiTableSeeder::class);
     }
 }

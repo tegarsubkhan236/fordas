@@ -12,20 +12,34 @@ class WilayahTableSeeder extends Seeder
      */
     public function run()
     {
-
+        
 
         \DB::table('wilayah')->delete();
-
+        
         \DB::table('wilayah')->insert(array (
-            0 =>
+            0 => 
             array (
                 'id' => 1,
-                'nama' => 'BANDUNG',
+                'nama' => 'KABUPATEN BANDUNG',
                 'created_at' => NULL,
-                'updated_at' => NULL,
+                'updated_at' => '2021-01-26',
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'nama' => 'KABUPATEN BOGOR',
+                'created_at' => NULL,
+                'updated_at' => '2021-01-26',
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'nama' => 'KOTA BANDUNG',
+                'created_at' => NULL,
+                'updated_at' => '2021-01-26',
             ),
         ));
-
-
+        
+        
     }
 }
