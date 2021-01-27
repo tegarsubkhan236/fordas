@@ -94,13 +94,13 @@
                                     </div>
                                     <div class="card-footer">
                                         @if (session()->get("level") == 5)
-                                            <a href="/donasi/{{ $item->id }}">
+                                            <a href="/donatur/pilih_donasi/{{ $item->id }}">
                                                 <button type="button" class="btn btn-primary btn-block">
                                                     Donasi
                                                 </button>
                                             </a>
                                         @else
-                                            <a href="/pilih_donasi/{{ $item->id }}">
+                                            <a href="/login">
                                                 <button type="button" class="btn btn-primary btn-block">
                                                     Donasi
                                                 </button>
