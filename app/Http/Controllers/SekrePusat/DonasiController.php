@@ -10,7 +10,7 @@ class DonasiController extends Controller
 {
     public function index()
     {
-        $data = Donasi::all();
+        $data = Donasi::orderBy("created_at","DESC")->get();
         return view("SekrePusat.donasi.index", compact('data'));
     }
 

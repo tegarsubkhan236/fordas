@@ -119,4 +119,10 @@ class ProposalController extends Controller
             "select" => $select,
         ]);
     }
+
+    public function display_form_aktifitas($id)
+    {
+        $data = Proposal::where('id',$id)->first();
+        return view("SekreWilayah.form_aktifitas",compact("data"));
+    }
 }

@@ -135,6 +135,7 @@
                                         @endif
                                     </h5>
                                     <p class="card-text">{!! substr($item->proposal->latar_belakang, 0,  200) !!}</p>
+                                    <a href="form_bayar_donasi/{{$item->id}}" class="btn btn-primary">Cetak bukti Donasi</a>
                                 </div>
                                 </div><br>
                             @endforeach

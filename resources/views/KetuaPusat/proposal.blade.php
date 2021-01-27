@@ -23,6 +23,7 @@
                     <div class="table-responsive">
                         <table class="table-bordered table-hover table" id="dtable">
                             <thead class="thead-dark">
+                            <th>ID</th>
                             <th>Dibuat Oleh</th>
                             <th>Judul</th>
                             <th>Tipe Proposal</th>
@@ -36,6 +37,7 @@
                             <tbody>
                             @foreach($data as $key => $row)
                                 <tr>
+                                    <td>{{$row->id}}</td>
                                     <td>{{$row->wilayah_da->nama}}</td>
                                     <td>{{$row->judul}}</td>
                                     <td>{{$row->proposal_kategori->nama}}</td>
@@ -45,9 +47,17 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
-                                            {{$row->donate == 0 ? "No" : "Yes"}}
-                                        </span>
+                                        @if ($row->donate == 1)
+                                            <a href="/pusat_ketua/proposal/{{$row->id}}/donasi">
+                                            <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
+                                                {{$row->donate == 0 ? "No" : "Yes"}}
+                                            </span>
+                                            </a>
+                                        @else
+                                            <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
+                                                {{$row->donate == 0 ? "No" : "Yes"}}
+                                            </span>
+                                        @endif
                                     </td>
                                     <td>
                                         {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}
@@ -61,9 +71,12 @@
                                                 <li class="fa fa-eye"></li>
                                             </button>
                                         </a>
+                                        @if (!$row->status == 2 || !$row->status == 1)
                                         <button type="button" data-id="{{$row->id}}" data-status="{{$row->status}}" class="btn btn-sm btn-warning edit">
                                             <li class="fa fa-edit"></li>
                                         </button>
+                                        @endif
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -123,7 +136,6 @@
     @include('msg');
     <script>
         $("#dtable").DataTable({
-            "order": [[ 7, "desc" ]]
         });
 
         $("#dtable .edit").on("click",function(){

@@ -93,15 +93,17 @@
                             <br>
                         </div>
                         <div class="card-footer">
-                            @if (session()->get("level") == 5)
-                                <a href="/donasi/{{ $data->id }}">
-                                    <button type="button" class="btn btn-primary btn-block">
-                                        Donasi
-                                    </button>
-                                </a>
+                            @if (session()->get("level") == 5 && $data->donate == 1)
+                            <a href="/donatur/pilih_donasi/{{ $data->id }}">
+                                <button type="button" class="btn btn-primary">
+                                    Donasi
+                                </button>
+                            </a>
+                            @elseif(session()->get("level") == 5 && $data->donate == 0)
+
                             @else
                                 <a href="/login">
-                                    <button type="button" class="btn btn-primary btn-block">
+                                    <button type="button" class="btn btn-primary">
                                         Donasi
                                     </button>
                                 </a>

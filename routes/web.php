@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Landing/pages/landing');
+    return redirect('/landing');
 });
 
 Route::get('login', 'AuthController@login_page');
@@ -99,6 +99,9 @@ Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:
     Route::get("/proposal/create", "ProposalController@create")->name("proposal.create");
     Route::get("/proposal/edit/{id}", "ProposalController@edit")->name("proposal.edit");
     Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal.detail");
+    Route::get("/proposal/aktifitas/{id}", "ProposalController@display_form_aktifitas")->name("proposal.aktifitas");
+
+    Route::post("/proposal/laporan_aktifitas/{id}", "DetailProposalController@create_laporan_aktifitas")->name("proposal.aktifitas");
     //
     Route::post("/proposal/store", "ProposalController@store")->name("proposal.store");
     Route::post("/proposal/update/{id?}", "ProposalController@update")->name("proposal.update");

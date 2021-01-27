@@ -67,6 +67,7 @@
                                     <td>{{$row->keterangan}}</td>
                                     <td>{{ Carbon\Carbon::parse($row->updated_at)->format('d-m-Y') }}</td>
                                     <td class="text-right">
+                                        <span>
                                         <a href="proposal/detail/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-info">
                                                 <li class="fa fa-eye"></li>
@@ -79,6 +80,14 @@
                                             </button>
                                         </a>
                                         @endif
+                                        @if ($row->status == 1)
+                                        <a href="proposal/aktifitas/{{$row->id}}">
+                                            <button type="button" class="btn btn-sm btn-warning">
+                                                <li class="fa fa-plus"></li>
+                                            </button>
+                                        </a>
+                                        @endif
+                                        </span>
                                     </td>
                                 </tr>
                             @endforeach
