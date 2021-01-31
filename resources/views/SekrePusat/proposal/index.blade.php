@@ -29,6 +29,8 @@
                             <th>Tipe Proposal</th>
                             <th class="text-center">Visibility</th>
                             <th class="text-center">Donasi</th>
+                            <th>Jumlah Donasi</th>
+                            <th>Jumlah Donatur</th>
                             <th>Status</th>
                             <th>Di Update pada tanggal</th>
                             <th class="text-right">action</th>
@@ -50,6 +52,8 @@
                                             {{$row->donate == 0 ? "No" : "Yes"}}
                                         </span>
                                     </td>
+                                    <td>Rp. {{ number_format($row->donasis->sum('total_donasi')) }}</td>
+                                    <td>{{ $row->donasis->count() != null ? $row->donasis->count():""}}</td>
                                     <td>
                                         {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}
                                         {{$row->status == 1 ? "Di Konfirmasi" : ""}}

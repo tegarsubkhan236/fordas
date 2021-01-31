@@ -35,6 +35,19 @@
                         </div>
                         <div class="card-body">
                             <br>
+                            <h5>Laporan Aktifitas</h5>
+                            <div class="card-text">
+                                @foreach($data_aktifitas as $key => $row)
+                                <tr>
+                                    <td>{{($key+1)}}</td>
+                                    <td>
+                                        @foreach (json_decode($row->aktifitas) as $image)
+                                        <img src="{{url('public/storage/'.$image)}}" style="height:120px; width:200px">
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                 @endforeach
+                            </div>
                             <h5>Latar Belakang</h5>
                             <div class="card-text">{!! $data->latar_belakang !!}</div>
                             <br>
@@ -53,7 +66,7 @@
                                                 <span >:</span>
                                             </td>
                                             <td width="248">
-                                                <span >{{$data->tgl}}</span>
+                                                <span >{{ Carbon\Carbon::parse($data->tgl)->format('l, Y-m-d') }}</span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -64,7 +77,7 @@
                                                 <span >:</span>
                                             </td>
                                             <td>
-                                                <span >{{$data->waktu}}</span>
+                                                <span >{{ Carbon\Carbon::parse($data->waktu)->format('h:i') }} WIB</span>
                                             </td>
                                         </tr>
                                         <tr>

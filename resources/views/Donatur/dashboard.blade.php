@@ -25,6 +25,7 @@
                         <a href="dashboard" class="list-group-item active">
                             <span class="h5 list-group-item-heading h5"><center>My Dashboard</center></span>
                         </a>
+                        
                         <form class="mt-3 mb-3">
                             <div class="row">
                                 <div class="col-md-4">
@@ -61,6 +62,20 @@
                                       </div>
                                 </div>
                             </div>
+                            <br><br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card text-center">
+                                        <div class="card-header">
+                                        </div>
+                                        <div class="card-body">
+                                          <h5 class="card-title">Total Donasi Anda :</h5>
+                                          <button class="btn btn-primary">Rp. {{$data_dikonfirmasi->sum('total_donasi')}}</button>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <br><br>
                         </form>
                         <a href="/donatur/dashboard" class="list-group-item active">
                             <span class="h5 list-group-item-heading h5"><center>Donasi Menunggu Pembayaran</center></span>

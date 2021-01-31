@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proposal;
+use App\Models\ProposalDetail;
 use App\Models\WilayahDa;
 use App\Models\Wilayah;
 use Illuminate\Http\Request;
@@ -55,6 +56,7 @@ class HomeController extends Controller
     public function view_laporan($id)
     {
         $data = Proposal::where('id',$id)->first();
-        return view('Landing.pages.view_laporan', compact('data'));
+        $data_aktifitas = ProposalDetail::where('proposal_id',$id)->get();
+        return view('Landing.pages.view_laporan', compact('data','data_aktifitas'));
     }
 }

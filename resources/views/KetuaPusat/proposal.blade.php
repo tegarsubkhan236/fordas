@@ -29,6 +29,8 @@
                             <th>Tipe Proposal</th>
                             <th class="text-center">Visibility</th>
                             <th class="text-center">Donasi</th>
+                            <th>Jumlah Donasi</th>
+                            <th>Jumlah Donatur</th>
                             <th>Status</th>
                             <th>Dibuat Pada Tanggal</th>
 
@@ -42,23 +44,25 @@
                                     <td>{{$row->judul}}</td>
                                     <td>{{$row->proposal_kategori->nama}}</td>
                                     <td class="text-center">
-                                        <span class="badge badge-{{$row->visibility == 0 ? "warning" : "success"}}">
-                                            {{$row->visibility == 0 ? "No" : "Yes"}}
-                                        </span>
+                                        <button type="button" class="btn btn-sm btn-{{$row->visibility == 0 ? "danger" : "success"}}">
+                                            <li class="fa fa-{{$row->visibility == 0 ? "ban" : "check"}}"></li>
+                                        </button>
                                     </td>
                                     <td class="text-center">
                                         @if ($row->donate == 1)
                                             <a href="/pusat_ketua/proposal/{{$row->id}}/donasi">
-                                            <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
-                                                {{$row->donate == 0 ? "No" : "Yes"}}
-                                            </span>
+                                            <button type="button" class="btn btn-sm btn-success">
+                                                <li class="fa fa-eye"></li>
+                                            </button>
                                             </a>
                                         @else
-                                            <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
-                                                {{$row->donate == 0 ? "No" : "Yes"}}
-                                            </span>
+                                            <button type="button" class="btn btn-sm btn-danger">
+                                                <li class="fa fa-ban"></li>
+                                            </button>
                                         @endif
                                     </td>
+                                    <td>Rp. {{ number_format($row->donasis->sum('total_donasi')) }}</td>
+                                    <td>{{ $row->donasis->count() != null ? $row->donasis->count():""}}</td>
                                     <td>
                                         {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}
                                         {{$row->status == 1 ? "Di Konfirmasi" : ""}}
@@ -135,7 +139,9 @@
 @section('js')
     @include('msg');
     <script>
-        $("#dtable").DataTable();
+        $("#dtable").DataTable([
+            "order": [[ 0, "desc" ]]
+        ]);
 
         $("#dtable .edit").on("click",function(){
             let params = $(this)

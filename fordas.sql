@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2021 at 01:12 PM
+-- Generation Time: Jan 31, 2021 at 11:20 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -73,8 +73,11 @@ INSERT INTO `donasi` (`id`, `proposal_id`, `total_donasi`, `bukti_transfer`, `ke
 (4, 1, 1000000, 'BslNs0lt_400x400.png', 'semangat', 1, 2, '2021-01-23', '2021-01-24'),
 (5, 1, 6000, '1.png', 'basss', 1, 2, '2021-01-23', '2021-01-23'),
 (6, 1, 6767, 'a.png', 'hfdhf', 1, 1, '2021-01-24', '2021-01-27'),
-(7, 6, 1500000, 'BslNs0lt_400x400.png', 'bantuan', 3, 1, '2021-01-26', '2021-01-26'),
-(8, 6, 2000000, 'activity diagram donasi.jpg', 'bantuan', 1, 2, '2021-01-27', '2021-01-27');
+(7, 6, 1500000, 'BslNs0lt_400x400.png', 'bantuan', 3, 2, '2021-01-26', '2021-01-27'),
+(8, 6, 2000000, 'activity diagram donasi.jpg', 'bantuan', 1, 2, '2021-01-27', '2021-01-27'),
+(9, 7, 10000, '2.jpg', 'bantuan', 1, 2, '2021-01-28', '2021-01-28'),
+(10, 7, 999999999, '2.jpg', 'new', 1, 2, '2021-01-29', '2021-01-30'),
+(11, 7, 99999, 'foto.jpg', '9', 1, 1, '2021-01-29', '2021-01-30');
 
 -- --------------------------------------------------------
 
@@ -204,7 +207,12 @@ INSERT INTO `proposal` (`id`, `created_by`, `judul`, `tgl`, `waktu`, `tempat`, `
 (3, 2, 'FORUM KOORDINASI DAS CISADANE', '2019-09-24', '12:00:00', 'Universitas Nusa Bangsa', '<p style=\"text-align: justify; \">Fenomena kerusakan lingkungan yang semakin meningkat menjadi peringatan bagi semua pihak\r\nuntuk lebih peduli terhadap lingkungan di sekitarnya. Daya dukung lingkungan yang menurun menjadi\r\nfactor penting yang harus segera diatasi. Daya dukung lingkungan sangat berhubungan dengan kondisi\r\nekosistem daerah aliran sungai (DAS). DAS yang baik akan memberikan efek positif terhadap\r\nlingkungan, demikian juga sebaliknya.\r\nPengelolaan DAS tidak terlepas dari banyaknya konflik antar pihak yang berkepentingan.\r\nPemanfaatan sumberdaya alam seringkali disalah gunakan demi memuluskan ambisi pihak-pihak\r\ntertentu dalam mengeksploitasi alam secara berlebihan. Kondisi demikian diperparah dengan issu ego\r\nsektoral yang sampai saat ini belum teratasi.\r\nMengingat setiap bagian dari bumi terbagi habis ke dalam DAS dan sub DAS maka tidaklah\r\nberlebihan jika setiap kegiatan pengelolaan lingkungan hendaknya berbasis pada wilayah DAS.\r\nPengelolaan lingkungan berbasis pada wilayah administrasi semata berbuah pada semakin\r\nmeruncingnya ego sektoral.<br></p>', '<p style=\"text-align: justify; \">Forum DAS adalah suatu wadah bagi semua pihak terkait dalam wilayah DAS. Forum DAS menjadi\r\njembatan untuk menemukan solusi bersama atas permasalahan lingkungan global. Dalam rangka\r\nmemperkuat organisasi, Forum DAS Cisadane berkepentingan untuk melakukan konsolidasi internal\r\npengurus. Konsolidasi merupakan bagian yang utuh bagi terciptanya suasan Forum yang kondusif\r\nsehingga mampu memberikan efek positif bagi kegiatan pengelolaan DAS Cisadane.&nbsp;<br></p>', '<p style=\"text-align: justify; \">Peserta terdiri dari pengurus Forum DAS Cisadane, Perguruan Tinggi, Lembaga Swadaya\r\nMasyarakat, Budayawan, serta berbagai pihak terkait (terlampir)<br></p>', '<p style=\"text-align: justify; \">Narasumber acara terdiri dari Ketua Forum DAS Cisadane<br></p>', '<p style=\"text-align: justify; \">Agenda kegiatan berupa penguatan organisasi Forum DAS Cisadane. Adapun hal-hal yang\r\ndibahas dalam kegiatan tersebut adalah :\r\n</p><p style=\"text-align: justify; \">1. Penguatan dan konsolidasi kelembagaan Fordas Cisadane\r\n</p><p style=\"text-align: justify; \">2. Sosialisasi Fordas Cisadane\r\n</p><p style=\"text-align: justify; \">3. Pembahasan program kerja tahun anggaran 2019<br></p>', 1, 1, 1, 0, 'proposal dikonfirmasi', '2021-01-18', '2021-01-18', NULL),
 (4, 2, 'FORUM KOORDINASI DAS CISADANE 2', '2021-01-18', '12:00:00', 'Tasik', '<p>abcde</p>', '<p>abcde<br></p>', '<p>abcde<br></p>', '<p>abcde<br></p>', '<p>abcde<br></p>', 1, 2, 1, 0, 'di tolak', '2021-01-18', '2021-01-18', NULL),
 (5, 1, 'FORUM KOORDINASI DAS CISADANE', '2021-01-22', '19:19:00', 'Universitas Nusa Bangsa', '<p style=\"text-align: justify; \">Fenomena kerusakan lingkungan yang semakin meningkat menjadi peringatan bagi semua pihak\r\nuntuk lebih peduli terhadap lingkungan di sekitarnya. Daya dukung lingkungan yang menurun menjadi\r\nfactor penting yang harus segera diatasi. Daya dukung lingkungan sangat berhubungan dengan kondisi\r\nekosistem daerah aliran sungai (DAS). DAS yang baik akan memberikan efek positif terhadap\r\nlingkungan, demikian juga sebaliknya.\r\nPengelolaan DAS tidak terlepas dari banyaknya konflik antar pihak yang berkepentingan.\r\nPemanfaatan sumberdaya alam seringkali disalah gunakan demi memuluskan ambisi pihak-pihak\r\ntertentu dalam mengeksploitasi alam secara berlebihan. Kondisi demikian diperparah dengan issu ego\r\nsektoral yang sampai saat ini belum teratasi.\r\nMengingat setiap bagian dari bumi terbagi habis ke dalam DAS dan sub DAS maka tidaklah\r\nberlebihan jika setiap kegiatan pengelolaan lingkungan hendaknya berbasis pada wilayah DAS.\r\nPengelolaan lingkungan berbasis pada wilayah administrasi semata berbuah pada semakin\r\nmeruncingnya ego sektoral.&nbsp;<br></p>', '<p style=\"text-align: justify; \">Forum DAS adalah suatu wadah bagi semua pihak terkait dalam wilayah DAS. Forum DAS menjadi\r\njembatan untuk menemukan solusi bersama atas permasalahan lingkungan global. Dalam rangka\r\nmemperkuat organisasi, Forum DAS Cisadane berkepentingan untuk melakukan konsolidasi internal\r\npengurus. Konsolidasi merupakan bagian yang utuh bagi terciptanya suasan Forum yang kondusif\r\nsehingga mampu memberikan efek positif bagi kegiatan pengelolaan DAS Cisadane.<br></p>', '<p style=\"text-align: justify; \">Peserta terdiri dari pengurus Forum DAS Cisadane, Perguruan Tinggi, Lembaga Swadaya\r\nMasyarakat, Budayawan, serta berbagai pihak terkait (terlampir)&nbsp;<br></p>', '<p style=\"text-align: justify; \">Narasumber acara terdiri dari Ketua Forum DAS Cisadane<br></p>', '<p style=\"text-align: justify; \">Agenda kegiatan berupa penguatan organisasi Forum DAS Cisadane. Adapun hal-hal yang\r\ndibahas dalam kegiatan tersebut adalah :\r\n</p><p style=\"text-align: justify; \">1. Penguatan dan konsolidasi kelembagaan Fordas Cisadane\r\n</p><p style=\"text-align: justify; \">2. Sosialisasi Fordas Cisadane\r\n</p><p style=\"text-align: justify; \">3. Pembahasan program kerja tahun anggaran 2019<br></p>', 1, 2, 1, 0, NULL, '2021-01-22', '2021-01-26', NULL),
-(6, 17, 'Bahan Persiapan Koordinasi Permasalahan Banjir', '2020-04-06', '10:00:00', 'Sukajaya', '<p><span style=\"font-family: &quot;Times New Roman&quot;;\">Banjir merupakan suatu masalah yang sampai saat masih perlu adanya\r\npenanganan khusus dari berbagai pihak, baik dari pemerintah maupun\r\nmasyarakat. Banjir bukan masalah yang ringan.</span></p><p><span style=\"font-family: &quot;Times New Roman&quot;;\">Banjir dapat terjadi akibat naiknya permukaan air lantaran curah hujan\r\nyang diatas normal, perubahan suhu, tanggul/ bendungan yang bobol,\r\npencairan salju yang cepat, terhambatnya aliran air di tempat lain. Sedikitnya ada lima faktor penting penyebab banjir di Indonesia yaitu\r\nfaktor hujan, faktor hancurnya retensi Daerah Aliran Sungai (DAS), faktor\r\nkesalahan perencanaan pembangunan alur sungai, faktor pendangkalan sungai, faktor kesalahan tata wilayah dan pembangunan sarana dan prasarana, dan faktor terjadinya longsor dari tanah pegunungan.</span><br></p>', '<p><span style=\"font-family: &quot;Times New Roman&quot;;\">Maksud dari penelitian ini adalah untuk mengkaji sejauh mana masyarakat Sukajaya peduli dan siap dalam menghadapi bencana longsor serta upaya-upaya apa saja yang sudah dilakukan pemerintah terhadap Sukajaya dalam\r\nmenanggulangi bencana longsor.</span></p><p><span style=\"font-family: &quot;Times New Roman&quot;;\">Tujuan penelitian ini adalah untuk mengetahui tingkat kesiapsiagaan masyarakat\r\ndi Sukajaya dan menganalisis upaya apa saja yang dapat dilakukan untuk\r\nmeningkatkan kesiapsiagaan masyarakat di Sukajaya, baik oleh masyarakat\r\nitu sendiri ataupun pemerintah.</span><span style=\"font-family: &quot;Times New Roman&quot;;\"><br></span><br></p>', '<p>Sekretaris Jendral Kementerian KLHK , organisasi Forum DAS Ciujung, dan lainnya dengan masyarakat</p>', '<p><span style=\"font-family: &quot;Times New Roman&quot;;\">Narasumber acara terdiri dari Ketua Forum DAS Ciujung</span><br></p>', '<p><span style=\"font-size: 1rem; font-family: &quot;Times New Roman&quot;;\">Agenda kegiatan berupa penguatan organisasi Forum DAS Ciujung. Adapun hal-hal yang\r\ndibahas dalam kegiatan tersebut adalah :</span><span style=\"font-family: &quot;Times New Roman&quot;;\">﻿</span></p><p><span style=\"font-family: &quot;Times New Roman&quot;;\">Mengetahui tingkat kesiapsiagaan masyarakat dalam menghadapi bencana banjir.</span></p><p><span style=\"font-family: &quot;Times New Roman&quot;;\">Sosialisasi Fordas Ciujung.</span><br></p>', 2, 1, 1, 1, 'Laksanakan', '2021-01-26', '2021-01-26', NULL);
+(6, 17, 'Bahan Persiapan Koordinasi Permasalahan Banjir', '2020-04-06', '10:00:00', 'Sukajaya', '<p><span style=\"font-family: &quot;Times New Roman&quot;;\">Banjir merupakan suatu masalah yang sampai saat masih perlu adanya\r\npenanganan khusus dari berbagai pihak, baik dari pemerintah maupun\r\nmasyarakat. Banjir bukan masalah yang ringan.</span></p><p><span style=\"font-family: &quot;Times New Roman&quot;;\">Banjir dapat terjadi akibat naiknya permukaan air lantaran curah hujan\r\nyang diatas normal, perubahan suhu, tanggul/ bendungan yang bobol,\r\npencairan salju yang cepat, terhambatnya aliran air di tempat lain. Sedikitnya ada lima faktor penting penyebab banjir di Indonesia yaitu\r\nfaktor hujan, faktor hancurnya retensi Daerah Aliran Sungai (DAS), faktor\r\nkesalahan perencanaan pembangunan alur sungai, faktor pendangkalan sungai, faktor kesalahan tata wilayah dan pembangunan sarana dan prasarana, dan faktor terjadinya longsor dari tanah pegunungan.</span><br></p>', '<p><span style=\"font-family: &quot;Times New Roman&quot;;\">Maksud dari penelitian ini adalah untuk mengkaji sejauh mana masyarakat Sukajaya peduli dan siap dalam menghadapi bencana longsor serta upaya-upaya apa saja yang sudah dilakukan pemerintah terhadap Sukajaya dalam\r\nmenanggulangi bencana longsor.</span></p><p><span style=\"font-family: &quot;Times New Roman&quot;;\">Tujuan penelitian ini adalah untuk mengetahui tingkat kesiapsiagaan masyarakat\r\ndi Sukajaya dan menganalisis upaya apa saja yang dapat dilakukan untuk\r\nmeningkatkan kesiapsiagaan masyarakat di Sukajaya, baik oleh masyarakat\r\nitu sendiri ataupun pemerintah.</span><span style=\"font-family: &quot;Times New Roman&quot;;\"><br></span><br></p>', '<p>Sekretaris Jendral Kementerian KLHK , organisasi Forum DAS Ciujung, dan lainnya dengan masyarakat</p>', '<p><span style=\"font-family: &quot;Times New Roman&quot;;\">Narasumber acara terdiri dari Ketua Forum DAS Ciujung</span><br></p>', '<p><span style=\"font-size: 1rem; font-family: &quot;Times New Roman&quot;;\">Agenda kegiatan berupa penguatan organisasi Forum DAS Ciujung. Adapun hal-hal yang\r\ndibahas dalam kegiatan tersebut adalah :</span><span style=\"font-family: &quot;Times New Roman&quot;;\">﻿</span></p><p><span style=\"font-family: &quot;Times New Roman&quot;;\">Mengetahui tingkat kesiapsiagaan masyarakat dalam menghadapi bencana banjir.</span></p><p><span style=\"font-family: &quot;Times New Roman&quot;;\">Sosialisasi Fordas Ciujung.</span><br></p>', 2, 1, 1, 1, 'Laksanakan', '2021-01-26', '2021-01-26', NULL),
+(7, 17, 'Bencana alam', '2021-02-03', '10:00:00', 'UNIKOM', '<p>test<br></p>', '<p>test<br></p>', '<p>test<br></p>', '<p>test<br></p>', '<p>test<br></p>', 2, 1, 1, 1, 'diterima', '2021-01-28', '2021-01-28', NULL),
+(8, 17, 'aaaaaa', '2021-02-10', '12:12:00', 'aaaaaa', '<p>aaaaa<br></p>', '<p>aaaaa<br></p>', '<p>aaaaa<br></p>', '<p>aaaaa<br></p>', '<p>aaaaaa<br></p>', 2, 0, 1, 1, NULL, '2021-01-29', '2021-01-29', NULL),
+(9, 17, 'bbbbbbb', '2021-02-17', '12:00:00', 'bbbbbb', '<p>bbbbbb<br></p>', '<p>b<br></p>', '<p>b<br></p>', '<p>b<br></p>', '<p>b<br></p>', 1, 0, 1, 0, NULL, '2021-01-29', '2021-01-29', NULL),
+(10, 17, 'ccccc', '2021-03-18', '23:59:00', 'ccccc', '<p>c<br></p>', '<p>c<br></p>', '<p>c<br></p>', '<p>c<br></p>', '<p>c<br></p>', 1, 1, 1, 1, 'di terima', '2021-01-29', '2021-01-30', NULL),
+(11, 17, 'ddddddd', '2021-02-26', '13:11:00', 'ddddddd', '<p>ddd<br></p>', '<p>d<br></p>', '<p>d<br></p>', '<p>d<br></p>', '<p>d<br></p>', 1, 0, 1, 1, NULL, '2021-01-29', '2021-01-29', NULL);
 
 -- --------------------------------------------------------
 
@@ -229,7 +237,9 @@ CREATE TABLE `proposal_detail` (
 INSERT INTO `proposal_detail` (`id`, `proposal_id`, `aktifitas`, `detail_aktifitas`, `status`, `created_at`, `updated_at`) VALUES
 (1, 6, '[\"1611737490.png\",\"1611737490.png\",\"1611737490.png\",\"1611737490.png\",\"1611737490.png\"]', NULL, NULL, '2021-01-27', '2021-01-27'),
 (2, 6, '[\"1611737600.png\",\"1611737600.png\",\"1611737600.png\",\"1611737600.png\",\"1611737600.png\"]', NULL, NULL, '2021-01-27', '2021-01-27'),
-(3, 6, '[\"1611737675.png\",\"1611737675.png\",\"1611737675.jpeg\",\"1611737675.png\",\"1611737675.png\"]', '<p>sadiqwd<br></p>', NULL, '2021-01-27', '2021-01-27');
+(3, 6, '[\"1611737675.png\",\"1611737675.png\",\"1611737675.jpeg\",\"1611737675.png\",\"1611737675.png\"]', '<p>sadiqwd<br></p>', NULL, '2021-01-27', '2021-01-27'),
+(4, 7, '[\"1611805664.png\"]', '<p>test<br></p>', NULL, '2021-01-28', '2021-01-28'),
+(5, 6, '[\"1612048507.jpg\"]', '<p>a<br></p>', NULL, '2021-01-30', '2021-01-30');
 
 -- --------------------------------------------------------
 
@@ -483,7 +493,7 @@ ALTER TABLE `detail_donatur`
 -- AUTO_INCREMENT for table `donasi`
 --
 ALTER TABLE `donasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -501,13 +511,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `proposal`
 --
 ALTER TABLE `proposal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `proposal_detail`
 --
 ALTER TABLE `proposal_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `proposal_donatur`

@@ -33,6 +33,8 @@
                             <th class="text-center">Visibility</th>
                             <th class="text-center">Donasi</th>
                             <th class="text-center">Aktifitas</th>
+                            <th>Jumlah Donasi</th>
+                            <th>Jumlah Donatur</th>
                             <th>Status</th>
                             <th>Keterangan</th>
                             <th>Updated At</th>
@@ -63,6 +65,8 @@
                                             </span>
                                         </a>
                                     </td>
+                                    <td>Rp. {{ number_format($row->donasis->sum('total_donasi')) }}</td>
+                                    <td>{{ $row->donasis->count() != null ? $row->donasis->count():""}}</td>
                                     <td>
                                          <span class="badge badge-{{$row->status == 0 ? "warning" : ""}}">
                                             {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}

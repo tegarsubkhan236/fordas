@@ -86,7 +86,7 @@ Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:3')-
     Route::post("/donasi/update/{id}", "DonasiController@update")->name("donasi.update");
 
     Route::get("/proposal", "ProposalController@index")->name("proposal");
-    Route::get("/proposal/detail/{id}", "ProposalController@detail_proposal")->name("proposal");
+    Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal");
 });
 
 // 4. korwil

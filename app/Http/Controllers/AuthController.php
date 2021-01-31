@@ -47,11 +47,11 @@ class AuthController extends Controller
         ]);
         if($create_user){
             DetailDonatur::create([
-                    "user_id" => $create_user->id,
-                    "name" => $data["name"],
-                    "gender" => $data["gender"],
-                    "alamat" => $data["alamat"],
-                    "no_hp" => $data["no_hp"],
+                "user_id" => $create_user->id,
+                "name" => $data["name"],
+                "gender" => $data["gender"],
+                "alamat" => $data["alamat"],
+                "no_hp" => $data["no_hp"],
             ]);
             return redirect("/")->with(["msg" => "Data has been stored successfully !"]);
         }
