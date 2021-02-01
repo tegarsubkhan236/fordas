@@ -25,6 +25,7 @@ class DetailProposalController extends Controller
         $file->proposal_id = $id;
         $file->detail_aktifitas = $request->detail_aktifitas;
         $file->aktifitas=json_encode($data);
+        $file->status = 0;
         $file->save();
         return redirect('wilayah_sekre/proposal')->with(["msg" => "Data berhasil disimpan !"]);
     }

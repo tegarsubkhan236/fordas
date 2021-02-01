@@ -12,7 +12,7 @@ class ProposalController extends Controller
 {
    public function index()
    {
-        $data = Proposal::orderBy("id","DESC")->get();
+        $data = Proposal::all();
         return view("KetuaPusat.proposal",[
             "title" => "Proposal Management",
             "data" => $data,

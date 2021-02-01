@@ -21,9 +21,10 @@
                     <div class="table-responsive">
                         <table class="table-bordered table-hover table" id="dtable">
                             <thead class="thead-dark">
-                            <th>Id</th>
-                            <th>Foto Aktifitas</th>
-                            <th>Detail Aktifitas</th>
+                                <th>Id</th>
+                                <th>Foto Aktifitas</th>
+                                <th>Detail Aktifitas</th>
+                                <th>Status</th>
                             </thead>
                             <tbody>
                             @foreach($data as $key => $row)
@@ -35,6 +36,7 @@
                                         @endforeach
                                     </td>
                                     <td>{!!$row->detail_aktifitas!!}</td>
+                                    <td>{{ $row->status === 0 ? "Menunggu Konfirmasi" : "Di konfirmasi" }}</td>
                                 </tr>
                             @endforeach
                             </tbody>

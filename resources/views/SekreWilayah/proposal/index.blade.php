@@ -52,18 +52,31 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="/wilayah_sekre/proposal/donasi/{{$row->id}}/detail">
-                                        <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
-                                            {{$row->donate == 0 ? "No" : "Yes"}}
-                                        </span>
-                                        </a>
+                                        @if ($row->donate == 1)
+                                            <a href="/wilayah_sekre/proposal/donasi/{{$row->id}}/detail">
+                                                <button class="btn btn-sm btn-success">
+                                                    <li class="fa fa-eye"></li>
+                                                </button>
+                                            </a>
+                                        @else
+                                            <button class="btn btn-danger btn-sm">
+                                                <li class="fa fa-ban"></li>
+                                            </button>
+                                        @endif
                                     </td>
                                     <td class="text-center">
                                         <a href="/wilayah_sekre/proposal/aktifitas/{{$row->id}}/detail">
-                                            <span class="badge badge-info">
-                                                aktifitas
-                                            </span>
+                                            <button type="button" class="btn btn-sm btn-{{ $row->proposal_details->avg('status') > 0.5 ? "success":"danger"}}">
+                                                <li class="fa fa-eye"></li>
+                                            </button>
                                         </a>
+                                        @if ($row->status == 1)
+                                        <a href="proposal/aktifitas/{{$row->id}}">
+                                            <button type="button" class="btn btn-sm">
+                                                <li class="fa fa-plus"></li>
+                                            </button>
+                                        </a>
+                                        @endif
                                     </td>
                                     <td>Rp. {{ number_format($row->donasis->sum('total_donasi')) }}</td>
                                     <td>{{ $row->donasis->count() != null ? $row->donasis->count():""}}</td>
@@ -91,13 +104,6 @@
                                         <a href="proposal/edit/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-warning">
                                                 <li class="fa fa-edit"></li>
-                                            </button>
-                                        </a>
-                                        @endif
-                                        @if ($row->status == 1)
-                                        <a href="proposal/aktifitas/{{$row->id}}">
-                                            <button type="button" class="btn btn-sm btn-warning">
-                                                <li class="fa fa-plus"></li>
                                             </button>
                                         </a>
                                         @endif

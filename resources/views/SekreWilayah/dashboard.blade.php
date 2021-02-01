@@ -74,27 +74,6 @@
         </div>
         <div class="clearfix visible-sm-block"></div>
     </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box">
-            <span class="info-box-icon bg-blue"><i class="fa fa-users"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Donatur {{ $data->nama }}</span>
-                {{-- <span class="info-box-number">{{ $proposal->donasis->count() }}</span> --}}
-            </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box">
-            <span class="info-box-icon bg-blue"><i class="fa fa-envelope"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Donasi terkumpul {{ $data->nama }}</span>
-                {{-- <span class="info-box-number">{{ $proposal->donasis->sum('total_donasi') }}</span> --}}
-            </div>
-            </div>
-        </div>
-        <div class="clearfix visible-sm-block"></div>
-    </div>
 @stop
 
 @section('footer')

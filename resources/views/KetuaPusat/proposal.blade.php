@@ -29,9 +29,9 @@
                             <th>Tipe Proposal</th>
                             <th class="text-center">Visibility</th>
                             <th class="text-center">Donasi</th>
+                            <th>Status</th>
                             <th>Jumlah Donasi</th>
                             <th>Jumlah Donatur</th>
-                            <th>Status</th>
                             <th>Dibuat Pada Tanggal</th>
 
                             <th class="text-right">action</th>
@@ -44,30 +44,30 @@
                                     <td>{{$row->judul}}</td>
                                     <td>{{$row->proposal_kategori->nama}}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-sm btn-{{$row->visibility == 0 ? "danger" : "success"}}">
-                                            <li class="fa fa-{{$row->visibility == 0 ? "ban" : "check"}}"></li>
-                                        </button>
+                                        <span class="badge badge-{{$row->visibility == 0 ? "warning" : "success"}}">
+                                            {{$row->visibility == 0 ? "No" : "Yes"}}
+                                        </span>
                                     </td>
                                     <td class="text-center">
                                         @if ($row->donate == 1)
                                             <a href="/pusat_ketua/proposal/{{$row->id}}/donasi">
-                                            <button type="button" class="btn btn-sm btn-success">
-                                                <li class="fa fa-eye"></li>
-                                            </button>
+                                            <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
+                                                {{$row->donate == 0 ? "No" : "Yes"}}
+                                            </span>
                                             </a>
                                         @else
-                                            <button type="button" class="btn btn-sm btn-danger">
-                                                <li class="fa fa-ban"></li>
-                                            </button>
+                                            <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
+                                                {{$row->donate == 0 ? "No" : "Yes"}}
+                                            </span>
                                         @endif
                                     </td>
-                                    <td>Rp. {{ number_format($row->donasis->sum('total_donasi')) }}</td>
-                                    <td>{{ $row->donasis->count() != null ? $row->donasis->count():""}}</td>
                                     <td>
                                         {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}
                                         {{$row->status == 1 ? "Di Konfirmasi" : ""}}
                                         {{$row->status == 2 ? "Di Tolak" : ""}}
                                     </td>
+                                    <td>Rp. {{ number_format($row->donasis->sum('total_donasi')) }}</td>
+                                    <td>{{ $row->donasis->count() != null ? $row->donasis->count():""}}</td>
                                     <td>{{ Carbon\Carbon::parse($row->created_at)->format('d-m-Y') }}</td>
                                     <td class="text-right">
                                         <a href="proposal/detail/{{$row->id}}">
@@ -139,10 +139,15 @@
 @section('js')
     @include('msg');
     <script>
-        $("#dtable").DataTable([
-            "order": [[ 0, "desc" ]]
-        ]);
+        // $("#dtable").DataTable([
+        //     "order": [[ 3, "desc" ]]
+        // ]);
 
+        $(document).ready(function() {
+            $('#dtable').DataTable( {
+                "order": [[ 0, "desc" ]]
+            } );
+        } );
         $("#dtable .edit").on("click",function(){
             let params = $(this)
             let id = params.data("id")

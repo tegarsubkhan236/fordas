@@ -38,6 +38,7 @@
                             <h5>Laporan Aktifitas</h5>
                             <div class="card-text">
                                 @foreach($data_aktifitas as $key => $row)
+                                @if ($row->status === 1)
                                 <tr>
                                     <td>{{($key+1)}}</td>
                                     <td>
@@ -46,6 +47,7 @@
                                         @endforeach
                                     </td>
                                 </tr>
+                                @endif
                                  @endforeach
                             </div>
                             <h5>Latar Belakang</h5>

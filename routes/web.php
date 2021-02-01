@@ -87,6 +87,9 @@ Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:3')-
 
     Route::get("/proposal", "ProposalController@index")->name("proposal");
     Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal");
+
+    Route::get("/proposal/aktifitas/{id}/detail", "ProposalController@aktifitas_detail")->name("sekre_proposal.aktifitas_detail");
+    Route::post("/proposal/aktifitas/update/{id?}", "ProposalController@aktifitas_update")->name("pusat_sekre.aktifitas.update");
 });
 
 // 4. korwil
