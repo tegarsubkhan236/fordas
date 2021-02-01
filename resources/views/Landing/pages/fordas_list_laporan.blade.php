@@ -25,9 +25,9 @@
                     </ul>
                     {{-- Tidak Perlu Donasi --}}
                     <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Proposal</li>
-                        @if (   $list_cant->count() > 0)
-                            @foreach (   $list_cant as $item)
+                        <li class="list-group-item active text-center" aria-current="true">Proposal</li>
+                        @if (   $data->count() > 0)
+                            @foreach (   $data as $item)
                             <li class="list-group-item">
                                 <div class="card">
                                     <div class="card-header">
@@ -37,51 +37,6 @@
                                                     {{ $item->judul }}
                                                 </a>
                                             </div>
-                                            {{-- <div class="col-md-3">{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</div> --}}
-                                            <div class="col-md-3">
-                                                <div class="pull-right">
-                                                    {{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-text"><br>{!! substr($item->latar_belakang, 0,  200) !!}....</div>
-                                    </div>
-                                </div>
-                            </li>
-                            @endforeach
-                        @else
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    <h3 class="text-center">Laporan Tidak Tersedia</h3></div>
-                            </div>
-                        </div>
-                        @endif
-                        <br/>
-                        Halaman : {{    $list_cant->currentPage() }} <br/>
-                        Jumlah Data : {{    $list_cant->total() }} <br/>
-                        Data Per Halaman : {{    $list_cant->perPage() }} <br/>
-
-                        {!!    $list_cant->render() !!}
-                    </ul>
-
-                    {{-- Perlu Donasi --}}
-                    <ul class="list-group">
-                        <li class="list-group-item active" aria-current="true">Perlu Donasi</li>
-                        @if (  $list_can->count() > 0)
-                            @foreach (  $list_can as $item)
-                            <li class="list-group-item">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <a href="/view_laporan/{{ $item->id }}">
-                                                    {{ $item->judul }}
-                                                </a>
-                                            </div>
-                                            {{-- <div class="col-md-3">{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</div> --}}
                                             <div class="col-md-3">
                                                 <div class="pull-right">
                                                     {{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}
@@ -93,20 +48,21 @@
                                         <div class="card-text"><br>{!! substr($item->latar_belakang, 0,  200) !!}....</div>
                                     </div>
                                     <div class="card-footer">
-                                        @if (session()->get("level") == 5)
+                                        @if (session()->get("level") == 5 && $item->donate == 1)
                                             <a href="/donatur/pilih_donasi/{{ $item->id }}">
-                                                <button type="button" class="btn btn-primary btn-block">
+                                                <button type="button" class="btn btn-primary">
                                                     Donasi
                                                 </button>
                                             </a>
+                                        @elseif(session()->get("level") == 5 && $item->donate == 0)
+
                                         @else
                                             <a href="/login">
-                                                <button type="button" class="btn btn-primary btn-block">
+                                                <button type="button" class="btn btn-primary">
                                                     Donasi
                                                 </button>
                                             </a>
                                         @endif
-                                    </div>
                                 </div>
                             </li>
                             @endforeach
@@ -119,11 +75,9 @@
                         </div>
                         @endif
                         <br/>
-                        Halaman : {{   $list_can->currentPage() }} <br/>
-                        Jumlah Data : {{   $list_can->total() }} <br/>
-                        Data Per Halaman : {{   $list_can->perPage() }} <br/>
-
-                        {!!   $list_can->render() !!}
+                        Halaman : {{    $data->currentPage() }} <br/>
+                        Jumlah Data : {{    $data->total() }} <br/>
+                        {!!    $data->render() !!}
                     </ul>
 
                 </div>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Landing/pages/landing');
+    return redirect('/landing');
 });
 
 Route::get('login', 'AuthController@login_page');
@@ -68,6 +68,7 @@ Route::prefix("/pusat_ketua")->namespace("KetuaPusat")->middleware('gateway:2')-
     Route::get("/proposal", "ProposalController@index")->name("pusat_ketua.proposal");
     Route::post("/proposal/update/{id?}", "ProposalController@update")->name("pusat_ketua.proposal.update");
     Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("pusat_ketua.proposal.detail");
+    Route::get("/proposal/{id}/donasi", "ProposalController@donasi_by_proposal")->name("pusat_ketua.proposal.donasi");
 });
 
 // 3. pusat sekre
@@ -85,7 +86,10 @@ Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:3')-
     Route::post("/donasi/update/{id}", "DonasiController@update")->name("donasi.update");
 
     Route::get("/proposal", "ProposalController@index")->name("proposal");
-    Route::get("/proposal/detail/{id}", "ProposalController@detail_proposal")->name("proposal");
+    Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal");
+
+    Route::get("/proposal/aktifitas/{id}/detail", "ProposalController@aktifitas_detail")->name("sekre_proposal.aktifitas_detail");
+    Route::post("/proposal/aktifitas/update/{id?}", "ProposalController@aktifitas_update")->name("pusat_sekre.aktifitas.update");
 });
 
 // 4. korwil
@@ -99,10 +103,16 @@ Route::prefix("/wilayah_sekre")->namespace("SekreWilayah")->middleware('gateway:
     Route::get("/proposal/create", "ProposalController@create")->name("proposal.create");
     Route::get("/proposal/edit/{id}", "ProposalController@edit")->name("proposal.edit");
     Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal.detail");
+    Route::get("/proposal/aktifitas/{id}", "ProposalController@display_form_aktifitas")->name("proposal.aktifitas");
+
+    Route::post("/proposal/laporan_aktifitas/{id}", "DetailProposalController@create_laporan_aktifitas")->name("proposal.aktifitas");
     //
     Route::post("/proposal/store", "ProposalController@store")->name("proposal.store");
     Route::post("/proposal/update/{id?}", "ProposalController@update")->name("proposal.update");
     // Route::delete("/proposal/delete/{id}", "ProposalController@delete")->name("proposal.delete");
+    Route::get("/proposal/aktifitas/{id}/detail", "ProposalController@aktifitas_detail")->name("proposal.aktifitas_detail");
+    Route::get("/proposal/donasi/{id}/detail", "ProposalController@donasi_detail")->name("proposal.donasi_detail");
+
 });
 
 // 5. donatur
@@ -112,4 +122,5 @@ Route::prefix("/donatur")->namespace("Donatur")->group(function () {
     Route::get("/pilih_donasi/{id}", "DonasiController@pilih_donasi")->name("donatur.pilih_donasi");
     Route::get("/form_bayar_donasi/{id}", "DonasiController@form_bayar_donasi")->name("donatur.form_bayar_donasi");
     Route::post("/proses_bayar/{id}", "DonasiController@proses_bayar")->name("donatur.proses_bayar");
+    Route::get("/cetak_bukti/{id}", "DonasiController@cetak_bukti")->name("donatur.cetak_bukti");
 });

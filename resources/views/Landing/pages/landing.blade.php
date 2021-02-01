@@ -24,23 +24,39 @@
                     class="col-xs-12 col-sm-12 col-md-9 main-content"
                     style="min-height: 1967px;">
                     <div>
-                        <h2 class="ds-div-head page-header first-page-header">
-                            Selamat Datang di FORDAS
-                        </h2>
-                        <div id="file_news_div_news" class="ds-static-div primary">
-                            <p class="ds-paragraph">
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            </p>
-                            <p class="ds-paragraph">&nbsp;</p>
-                            <p class="ds-paragraph">
-                                <span class="bold">Pengumuman:</span>
-                            </p>
-                            <p class="ds-paragraph">
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            </p>
-                            <p class="ds-paragraph">
-                               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            </p>
+                        <div
+                            class="col-xs-12 col-sm-12 col-md-12 main-content"
+                            style="min-height: 1967px;">
+                            <ul class="list-group">
+                                <li class="list-group-item active text-center" aria-current="true">BERANDA</li>
+                                @foreach ($data as $item)
+                                <a href="/fordas_list_laporan/1"><li class="list-group-item">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <a href="/view_laporan/{{ $item->id }}">
+                                                        {{ $item->judul }}
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="pull-right">
+                                                       {{$item->wilayah_da->nama}}, {{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="card-text"><br>{!! substr($item->latar_belakang, 0,  200) !!}....</div>
+                                        </div>
+                                    </div>
+                                </li></a>
+                                @endforeach
+                            </ul>
+                            Halaman : {{    $data->currentPage() }} <br/>
+                            Jumlah Data : {{    $data->total() }} <br/>
+
+                            {!!$data->render()!!}
                         </div>
                     </div>
                 </div>

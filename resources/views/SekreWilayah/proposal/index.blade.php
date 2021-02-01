@@ -31,7 +31,10 @@
                             <th>Title</th>
                             <th>Type</th>
                             <th class="text-center">Visibility</th>
-                            <th class="text-center">Can Donate</th>
+                            <th class="text-center">Donasi</th>
+                            <th class="text-center">Aktifitas</th>
+                            <th>Jumlah Donasi</th>
+                            <th>Jumlah Donatur</th>
                             <th>Status</th>
                             <th>Keterangan</th>
                             <th>Updated At</th>
@@ -49,10 +52,34 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
-                                            {{$row->donate == 0 ? "No" : "Yes"}}
-                                        </span>
+                                        @if ($row->donate == 1)
+                                            <a href="/wilayah_sekre/proposal/donasi/{{$row->id}}/detail">
+                                                <button class="btn btn-sm btn-success">
+                                                    <li class="fa fa-eye"></li>
+                                                </button>
+                                            </a>
+                                        @else
+                                            <button class="btn btn-danger btn-sm">
+                                                <li class="fa fa-ban"></li>
+                                            </button>
+                                        @endif
                                     </td>
+                                    <td class="text-center">
+                                        <a href="/wilayah_sekre/proposal/aktifitas/{{$row->id}}/detail">
+                                            <button type="button" class="btn btn-sm btn-{{ $row->proposal_details->avg('status') > 0.5 ? "success":"danger"}}">
+                                                <li class="fa fa-eye"></li>
+                                            </button>
+                                        </a>
+                                        @if ($row->status == 1)
+                                        <a href="proposal/aktifitas/{{$row->id}}">
+                                            <button type="button" class="btn btn-sm">
+                                                <li class="fa fa-plus"></li>
+                                            </button>
+                                        </a>
+                                        @endif
+                                    </td>
+                                    <td>Rp. {{ number_format($row->donasis->sum('total_donasi')) }}</td>
+                                    <td>{{ $row->donasis->count() != null ? $row->donasis->count():""}}</td>
                                     <td>
                                          <span class="badge badge-{{$row->status == 0 ? "warning" : ""}}">
                                             {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}
@@ -67,6 +94,7 @@
                                     <td>{{$row->keterangan}}</td>
                                     <td>{{ Carbon\Carbon::parse($row->updated_at)->format('d-m-Y') }}</td>
                                     <td class="text-right">
+                                        <span>
                                         <a href="proposal/detail/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-info">
                                                 <li class="fa fa-eye"></li>
@@ -79,6 +107,7 @@
                                             </button>
                                         </a>
                                         @endif
+                                        </span>
                                     </td>
                                 </tr>
                             @endforeach

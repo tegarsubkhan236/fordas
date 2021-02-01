@@ -23,12 +23,15 @@
                     <div class="table-responsive">
                         <table class="table-bordered table-hover table" id="dtable">
                             <thead class="thead-dark">
+                            <th>ID</th>
                             <th>Dibuat Oleh</th>
                             <th>Judul</th>
                             <th>Tipe Proposal</th>
                             <th class="text-center">Visibility</th>
                             <th class="text-center">Donasi</th>
                             <th>Status</th>
+                            <th>Jumlah Donasi</th>
+                            <th>Jumlah Donatur</th>
                             <th>Dibuat Pada Tanggal</th>
 
                             <th class="text-right">action</th>
@@ -36,6 +39,7 @@
                             <tbody>
                             @foreach($data as $key => $row)
                                 <tr>
+                                    <td>{{$row->id}}</td>
                                     <td>{{$row->wilayah_da->nama}}</td>
                                     <td>{{$row->judul}}</td>
                                     <td>{{$row->proposal_kategori->nama}}</td>
@@ -45,15 +49,25 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
-                                            {{$row->donate == 0 ? "No" : "Yes"}}
-                                        </span>
+                                        @if ($row->donate == 1)
+                                            <a href="/pusat_ketua/proposal/{{$row->id}}/donasi">
+                                            <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
+                                                {{$row->donate == 0 ? "No" : "Yes"}}
+                                            </span>
+                                            </a>
+                                        @else
+                                            <span class="badge badge-{{$row->donate == 0 ? "warning" : "success"}}">
+                                                {{$row->donate == 0 ? "No" : "Yes"}}
+                                            </span>
+                                        @endif
                                     </td>
                                     <td>
                                         {{$row->status == 0 ? "Menunggu Konfirmasi" : ""}}
                                         {{$row->status == 1 ? "Di Konfirmasi" : ""}}
                                         {{$row->status == 2 ? "Di Tolak" : ""}}
                                     </td>
+                                    <td>Rp. {{ number_format($row->donasis->sum('total_donasi')) }}</td>
+                                    <td>{{ $row->donasis->count() != null ? $row->donasis->count():""}}</td>
                                     <td>{{ Carbon\Carbon::parse($row->created_at)->format('d-m-Y') }}</td>
                                     <td class="text-right">
                                         <a href="proposal/detail/{{$row->id}}">
@@ -61,9 +75,12 @@
                                                 <li class="fa fa-eye"></li>
                                             </button>
                                         </a>
+                                        @if (!$row->status == 2 || !$row->status == 1)
                                         <button type="button" data-id="{{$row->id}}" data-status="{{$row->status}}" class="btn btn-sm btn-warning edit">
                                             <li class="fa fa-edit"></li>
                                         </button>
+                                        @endif
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -122,10 +139,15 @@
 @section('js')
     @include('msg');
     <script>
-        $("#dtable").DataTable({
-            "order": [[ 7, "desc" ]]
-        });
+        // $("#dtable").DataTable([
+        //     "order": [[ 3, "desc" ]]
+        // ]);
 
+        $(document).ready(function() {
+            $('#dtable').DataTable( {
+                "order": [[ 0, "desc" ]]
+            } );
+        } );
         $("#dtable .edit").on("click",function(){
             let params = $(this)
             let id = params.data("id")

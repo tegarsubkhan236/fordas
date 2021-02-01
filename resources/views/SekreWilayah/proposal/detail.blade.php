@@ -34,7 +34,7 @@
                                             <span style="font-size: x-small;">:</span>
                                         </td>
                                         <td width="200">
-                                            <span style="font-size: x-small;">{{$data->id}}/{{ Carbon\Carbon::parse($data->created_at)->format('Y-m-d') }}</span>
+                                            <span style="font-size: x-small;">{{$data->id}}/{{ Carbon\Carbon::parse($data->created_at)->format('d-m-Y') }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -53,7 +53,7 @@
                         </td>
                         <td valign="top">
                             <div align="right">
-                                <span style="font-size: x-small;">{{$data->tempat}}, {{ Carbon\Carbon::parse($data->created_at)->format('d-m-Y') }}</span>
+                            <span style="font-size: x-small;">{{$data->tempat}}, {{ Carbon\Carbon::parse($data->created_at)->format('d-m-Y') }}</span>
                             </div>
                         </td>
                     </tr>
@@ -136,40 +136,34 @@
                                 </span>
                             <div align="justify">
                                 <span style="font-size: x-small;">
-                                    Demikian surat ini kami sampaikan, kami harap ibu/bapa dapat menghadiri rapat ini. sekian dan terima kasih.
+                                    Demikian surat ini kami sampaikan, kami harap ibu/bapa dapat menghadiri kegiatan ini. sekian dan terima kasih.
                                 </span>
-                            </div>
-                            <div align="center">
-                                <span style="font-size: x-small;">Mengetahui</span>
+                                <br>
                             </div>
                         </td>
                     </tr>
                     {{-- FOOTER --}}
                     <tr>
                         <td>
-                            <div align="center">
-                                <span style="font-size: x-small;">Sekretaria Forum</span>
-                            </div>
-                            <div align="center">
-                            </div>
-                            <div align="center">
-                                <span style="font-size: x-small;">Ai komala sari </span></div>
                         </td>
                         <td></td>
-                        <td valign="top">
+                        <td>
+                            <br><br>
                             <div align="center">
-                                <span style="font-size: x-small;">Ketua Forum</span>
+                                <span style="font-size: x-small;">Mengetahui</span>
                             </div>
                             <div align="center">
+                                <span style="font-size: x-small;">Ketua Forum DAS Jawa Barat,</span>
                             </div>
+                            <br><br>
                             <div align="center">
-                                <span style="font-size: x-small;">E.Sulyati Dra,M.pd.</span>
+                                <span style="font-size: x-small;">..............................................</span>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-
+            <br>
         </div>
     </div>
 @stop

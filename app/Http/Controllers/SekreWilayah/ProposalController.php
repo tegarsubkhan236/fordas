@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\SekreWilayah;
 
 use App\Http\Controllers\Controller;
+use App\Models\Donasi;
 use App\Models\Proposal;
+use App\Models\ProposalDetail;
 use App\Models\ProposalKategori;
 use Illuminate\Http\Request;
 
@@ -118,5 +120,23 @@ class ProposalController extends Controller
             "data" => $data,
             "select" => $select,
         ]);
+    }
+
+    public function display_form_aktifitas($id)
+    {
+        $data = Proposal::where('id',$id)->first();
+        return view("SekreWilayah.form_aktifitas",compact("data"));
+    }
+
+    public function donasi_detail($id)
+    {
+        $data = Donasi::where("proposal_id",$id)->where("status",2)->get();
+        return view("SekreWilayah.proposal_donasi",compact("data"));
+    }
+
+    public function aktifitas_detail($id)
+    {
+        $data = ProposalDetail::where("proposal_id",$id)->get();
+        return view("SekreWilayah.proposal_aktifitas",compact("data"));
     }
 }

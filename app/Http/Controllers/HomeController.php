@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proposal;
+use App\Models\ProposalDetail;
 use App\Models\WilayahDa;
 use App\Models\Wilayah;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
-{   
+{
     public function landing()
-    {
-        return view("Landing.pages.landing");
+    {   $list = [
+        'visibility' => 1,
+        'status' => 1,
+        ];
+        $data = Proposal::where($list)->orderBy('id','DESC')->paginate(10);
+        return view("Landing.pages.landing",compact("data"));
     }
     public function all_fordas()
     {
@@ -38,27 +43,20 @@ class HomeController extends Controller
 
     public function fordas_list_laporan($id)
     {
-        $CAN_Donate = [
+        $list = [
             'created_by' => $id,
             'visibility' => 1,
             'status' => 1,
-            'donate' => 1,
-        ];
-        $CANT_Donate = [
-            'created_by' => $id,
-            'visibility' => 1,
-            'status' => 1,
-            'donate' => 0,
         ];
         $detail = WilayahDA::where('id',$id)->first();
-        $list_can = Proposal::where($CAN_Donate)->orderBy('id','DESC')->paginate(3);
-        $list_cant = Proposal::where($CANT_Donate)->orderBy('id','DESC')->paginate(3);
-        return view('Landing.pages.fordas_list_laporan', compact('detail','list_can', 'list_cant'));
+        $data = Proposal::where($list)->orderBy('id','DESC')->paginate(3);
+        return view('Landing.pages.fordas_list_laporan', compact('detail','data'));
     }
 
     public function view_laporan($id)
     {
         $data = Proposal::where('id',$id)->first();
-        return view('Landing.pages.view_laporan', compact('data'));
+        $data_aktifitas = ProposalDetail::where('proposal_id',$id)->get();
+        return view('Landing.pages.view_laporan', compact('data','data_aktifitas'));
     }
 }

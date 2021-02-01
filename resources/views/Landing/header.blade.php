@@ -27,8 +27,7 @@
                         type="button"
                         class="navbar-toggle visible-sm"
                         data-toggle="offcanvas">
-                            <span class="sr-only">Toggle
-                            navigation</span>
+                            <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"> </span>
                             <span class="icon-bar"> </span>
                             <span class="icon-bar"> </span>

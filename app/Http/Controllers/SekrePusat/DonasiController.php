@@ -10,7 +10,7 @@ class DonasiController extends Controller
 {
     public function index()
     {
-        $data = Donasi::all();
+        $data = Donasi::orderBy("created_at","DESC")->get();
         return view("SekrePusat.donasi.index", compact('data'));
     }
 
@@ -23,7 +23,7 @@ class DonasiController extends Controller
     public function edit($id)
     {
         $data = Donasi::where('id',$id)->first();
-        return view("sekrePusat.donasi.edit",compact('data'));
+        return view("SekrePusat.donasi.edit",compact('data'));
     }
 
     public function update(Request $req,$id)

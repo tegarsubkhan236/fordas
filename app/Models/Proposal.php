@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property ProposalKategori $proposal_kategori
  * @property WilayahDa|null $wilayah_da
  * @property Collection|Donasi[] $donasis
+ * @property Collection|ProposalDetail[] $proposal_details
  * @property Collection|ProposalDonatur[] $proposal_donaturs
  *
  * @package App\Models
@@ -89,6 +90,11 @@ class Proposal extends Model
 	public function donasis()
 	{
 		return $this->hasMany(Donasi::class);
+	}
+
+	public function proposal_details()
+	{
+		return $this->hasMany(ProposalDetail::class);
 	}
 
 	public function proposal_donaturs()
