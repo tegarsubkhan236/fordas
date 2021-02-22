@@ -11,6 +11,9 @@
             <a href="/" class="list-group-item active">
                 <span class="h5 list-group-item-heading  h5">Beranda</span>
             </a>
+            <a href="/about" class="list-group-item">
+                <span class="h5 list-group-item-heading  h5">About</span>
+            </a>
         </div>
 
         <h2 class="ds-option-set-head  h6">Browse</h2>
@@ -42,9 +45,9 @@
                 class="list-group">
                 <a href="/login" class="list-group-item ds-option">Login</a>
                 <a href="/register" class="list-group-item ds-option">Register</a>
-            </div>      
+            </div>
         @endif
-        
+
         <div id="aspect_viewArtifacts_Navigation_list_context" class="list-group">
         <div id="aspect_viewArtifacts_Navigation_list_administrative" class="list-group">
     </div>

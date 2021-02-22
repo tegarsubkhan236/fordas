@@ -18,6 +18,10 @@ class HomeController extends Controller
         $data = Proposal::where($list)->orderBy('id','DESC')->paginate(10);
         return view("Landing.pages.landing",compact("data"));
     }
+    public function about()
+    {
+        return view("Landing.pages.about");
+    }
     public function all_fordas()
     {
         $data = Wilayah::all();

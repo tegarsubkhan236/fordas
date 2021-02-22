@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="card-body">
                                           <h5 class="card-title">Menunggu Konfirmasi</h5>
-                                          <p class="card-text">Kirim pembayaran donasi anda ke rekeningg 12345678</p>
+                                          <p class="card-text">Donasi yang Anda berikan sedang dalam proses</p>
                                           <button class="btn btn-primary">Total Proposal : {{$data_menunggu_konfirmasi->count()}}</button>
                                         </div>
                                       </div>
@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="card-body">
                                           <h5 class="card-title">Donasi di terima KORWIL</h5>
-                                          <p class="card-text">Kirim pembayaran donasi anda ke rekeningg 12345678</p>
+                                          <p class="card-text">Donasi di konfirmasi dapat di cetak sebagai bukti donasi</p>
                                           <button class="btn btn-primary">Total Proposal : {{$data_dikonfirmasi->count()}}</button>
                                         </div>
                                       </div>
