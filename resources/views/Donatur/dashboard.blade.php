@@ -25,7 +25,7 @@
                         <a href="dashboard" class="list-group-item active">
                             <span class="h5 list-group-item-heading h5"><center>My Dashboard</center></span>
                         </a>
-                        
+
                         <form class="mt-3 mb-3">
                             <div class="row">
                                 <div class="col-md-4">
@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="card-body">
                                           <h5 class="card-title">Menunggu Konfirmasi</h5>
-                                          <p class="card-text">Kirim pembayaran donasi anda ke rekeningg 12345678</p>
+                                          <p class="card-text">Pihak terkait sedang melakukan proses donasi dari Anda</p>
                                           <button class="btn btn-primary">Total Proposal : {{$data_menunggu_konfirmasi->count()}}</button>
                                         </div>
                                       </div>
@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="card-body">
                                           <h5 class="card-title">Donasi di terima KORWIL</h5>
-                                          <p class="card-text">Kirim pembayaran donasi anda ke rekeningg 12345678</p>
+                                          <p class="card-text">Terimakasih sudah membantu Daerah Aliran Sungai agar tetap maju</p>
                                           <button class="btn btn-primary">Total Proposal : {{$data_dikonfirmasi->count()}}</button>
                                         </div>
                                       </div>

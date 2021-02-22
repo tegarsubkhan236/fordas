@@ -17,6 +17,13 @@
                         </div>
                         <div class="col-md-9">
                         </div>
+                        <div>
+                            {{-- <a href="proposal/print/{{$row->id}}">
+                                <button type="button" class="btn btn-sm btn-success">
+                                    <li class="fa fa-eye"></li>
+                                </button>
+                            </a> --}}
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -73,6 +80,11 @@
                                     <td class="text-right">
                                         <a href="proposal/detail/{{$row->id}}">
                                             <button type="button" class="btn btn-sm btn-info">
+                                                <li class="fa fa-eye"></li>
+                                            </button>
+                                        </a>
+                                        <a href="proposal/cetak/{{$row->id}}">
+                                            <button type="button" class="btn btn-sm btn-success">
                                                 <li class="fa fa-eye"></li>
                                             </button>
                                         </a>

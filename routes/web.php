@@ -25,6 +25,8 @@ Route::get("/logout", "AuthController@logout")->name('logout');
 
 //FRONT
 Route::get("/landing", "HomeController@landing")->name('landing');
+Route::get("/about", "HomeController@about")->name('about');
+
 Route::get("/all_fordas", "HomeController@all_fordas")->name('all_fordas');
 Route::get("/all_fordas/{id}", "HomeController@all_fordas_detail")->name('all_fordas_detail');
 Route::get("/fordas_detail/{id}", "HomeController@fordas_detail")->name('fordas_detail');
@@ -86,7 +88,11 @@ Route::prefix("/pusat_sekre")->namespace("SekrePusat")->middleware('gateway:3')-
     Route::post("/donasi/update/{id}", "DonasiController@update")->name("donasi.update");
 
     Route::get("/proposal", "ProposalController@index")->name("proposal");
+    Route::get("/proposal/view_cetak_proposal", "ProposalController@view_cetak_proposal")->name("proposal.view_cetak");
+    Route::post("/proposal/cetak_by_created", "ProposalController@cetak_by_created");
     Route::get("/proposal/detail/{id}", "ProposalController@detail")->name("proposal");
+    Route::get("/proposal/cetak/{id}", "ProposalController@cetak_proposal")->name("proposal.cetak_proposal");
+    Route::get("/proposal/print/{id}", "ProposalController@print_proposal")->name("proposal.print_proposal");
 
     Route::get("/proposal/aktifitas/{id}/detail", "ProposalController@aktifitas_detail")->name("sekre_proposal.aktifitas_detail");
     Route::post("/proposal/aktifitas/update/{id?}", "ProposalController@aktifitas_update")->name("pusat_sekre.aktifitas.update");

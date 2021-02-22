@@ -131,6 +131,12 @@ class Gateway
                             "icon" => "fa fa-file"
                         ]);
 
+                        $e->menu->add([
+                            "text" => "Cetak Proposal",
+                            "url" => "/pusat_sekre/proposal/view_cetak_proposal",
+                            "icon" => "fa fa-file"
+                        ]);
+
                         // $e->menu->add([
                         //     "text" => "Add Proposal",
                         //     "url" => "/",
